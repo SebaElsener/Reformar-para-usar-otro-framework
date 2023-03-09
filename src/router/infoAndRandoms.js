@@ -1,6 +1,7 @@
 
 import { Router } from 'express'
 import { fork } from 'child_process'
+import * as os from 'os'
 
 const infoAndRandoms = new Router()
 
@@ -12,7 +13,8 @@ infoAndRandoms.get('/info', (req, res) => {
         projectFolder: process.cwd(),
         projectPath: process.execPath,
         processId: process.pid,
-        memUsage: process.memoryUsage().rss
+        memUsage: process.memoryUsage().rss,
+        CPUsQty: os.cpus().length
     }
     res.render('info', { processInfo })
 })

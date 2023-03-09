@@ -18,6 +18,8 @@ import _yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import dotenv from 'dotenv'
 import infoAndRandoms from './router/infoAndRandoms.js'
+import cluster from 'cluster'
+import * as os from 'os'
 
 dotenv.config()
 
@@ -66,7 +68,6 @@ app.use('/api/logout', userLogout)
 app.use('/api/register', userReg)
 app.use('/api/home', homeRoute)
 app.use('/api/', infoAndRandoms)
-app.use('/api/', infoAndRandoms)
 
 // Middleware para mostrar error al intentar acceder a una ruta/método no implementados
 app.use((req, res) => {
@@ -93,16 +94,34 @@ io.on('connection', async socket => {
     })
 })
 
-const { PORT } = yargs
+const { PORT, clusterMode } = yargs
     .alias({
-        p: 'PORT'
+        p: 'PORT',
+        m: 'clusterMode'
     })
     .default({
-        PORT: 8080
+        PORT: 8080,
+        clusterMode: 'FORK'
     })
     .argv
 
-const connectedServer = httpServer.listen(PORT, () => {
-    console.log(`http server escuchando en puerto ${connectedServer.address().port}`)
-})
-connectedServer.on('error', error => console.log(`Error en servidor ${error}`))
+if (clusterMode === 'CLUSTER' && cluster.isPrimary) {
+    const CPUsQty = os.cpus().length
+
+    console.log('SERVIDOR PRIMARIO DEL CLUSTER')
+    console.log('Número de procesadores: ' + CPUsQty)
+    console.log('PID:' + process.pid)
+
+    for (let i = 0; i < CPUsQty; i++) {
+        cluster.fork()
+    }
+    cluster.on('exit', worker => {
+        console.log(`Worker ${worker.process.pid} died on ${new Date().toLocaleString()}`)
+        cluster.fork()
+    })
+} else {
+    const connectedServer = httpServer.listen(PORT, () => {
+        console.log(`http server escuchando en puerto ${connectedServer.address().port}`)
+    })
+    connectedServer.on('error', error => console.log(`Error en servidor ${error}`))
+}
