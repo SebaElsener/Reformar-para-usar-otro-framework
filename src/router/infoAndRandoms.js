@@ -16,6 +16,7 @@ infoAndRandoms.get('/info', (req, res) => {
         memUsage: process.memoryUsage().rss,
         CPUsQty: os.cpus().length
     }
+    if (process.env.INFOCONSOLE == 'ON') { console.log(processInfo) }
     res.render('info', { processInfo })
 })
 

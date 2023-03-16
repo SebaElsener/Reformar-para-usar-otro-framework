@@ -13,13 +13,16 @@ import passport from 'passport'
 import routeProducts from './router/productsRouter.js'
 import routeCart from './router/cartRouter.js'
 import userLogout from './router/userLogout.js'
-import userLoginWatcher from '../utils/userLoginWatcher.js'
+import userLoginWatcher from './middleware/userLoginWatcher.js'
 import _yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import dotenv from 'dotenv'
 import infoAndRandoms from './router/infoAndRandoms.js'
 import cluster from 'cluster'
 import * as os from 'os'
+import compression from 'compression'
+import routeError from './middleware/routeError.js'
+import { logs } from './middleware/logs.js'
 
 dotenv.config()
 
@@ -35,6 +38,7 @@ app.set('views', './public/views')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(compression())
 app.use(session({
     store: MongoStore.create({
         dbName: 'sessions',
@@ -61,6 +65,8 @@ passport.deserializeUser((user, done) => {
 })
 app.use(passport.initialize())
 app.use(passport.session())
+// Middleware para registrar todas la peticiones recibidas
+app.use(logs)
 app.use('/api/productos', userLoginWatcher, routeProducts)
 app.use('/api/carrito', userLoginWatcher, routeCart)
 app.use('/api/login', userLogin)
@@ -70,12 +76,7 @@ app.use('/api/home', homeRoute)
 app.use('/api/', infoAndRandoms)
 
 // Middleware para mostrar error al intentar acceder a una ruta/método no implementados
-app.use((req, res) => {
-    res.status(404).json({
-        error: -1,
-        descripcion: `ruta '${req.path}' método '${req.method}' no implementada`
-    })
-})
+app.use(routeError)
 
 io.on('connection', async socket => {
     console.log('Nuevo cliente conectado!')

@@ -25,14 +25,15 @@ productsForm.addEventListener('submit', (e) => {
             }
         }
     ).then(res => {
-        document.location.reload()})
+        document.location.reload()}
+    )
     // Reset del form luego del ingreso
     productsForm.reset()
 })
 
 // Evento para mostrar contenido carrito al cargar ventana actual
 window.addEventListener('load', () => {
-    fetch('/api/carrito/63d88079a8cac0b4e425291f/productos')
+    fetch('/api/carrito/64135e4f8fad9b09d2631f4e/productos')
     .then(res => res.json())
     .then(cart => {
         let prodsQty = []
@@ -51,7 +52,8 @@ for (let i=0; i < deleteBtn.length; i++) {
             }
         ).then(res => res.json()).then(json => {
             console.log(json)
-            document.location.reload()})
+            document.location.reload()}
+        )
     })
 }
 
@@ -89,7 +91,7 @@ for (let i=0;i < buyBtn.length;i++) {
         .then(productos => {
             const selectedProduct = productos.find(product => product.id === buyBtn[i].id)
             // Fetch para agregar producto comprado al carrito
-            fetch(`/api/carrito/63d88079a8cac0b4e425291f/productos/${buyBtn[i].id}`,
+            fetch(`/api/carrito/64135e4f8fad9b09d2631f4e/productos/${buyBtn[i].id}`,
                 {
                     method: 'POST',
                     body: JSON.stringify(selectedProduct),

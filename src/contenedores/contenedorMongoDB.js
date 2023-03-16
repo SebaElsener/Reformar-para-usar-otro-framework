@@ -27,7 +27,6 @@ class ContenedorMongoDB {
     //  Traer todos los productos, carritos, usuarios o mensajes
     async getAll() {
         try {
-            //return await this.newModel.find().then(res => { return res })
             return await this.newModel.find().lean()
         } catch (error) {
             console.log('Error al leer la base de datos', error)
@@ -37,7 +36,7 @@ class ContenedorMongoDB {
     //  Traer producto o carrito por id
     async getById(id) {
         try {
-            return await this.newModel.findById(id).then(res => { return res })
+            return await this.newModel.findOne( {_id: id} ).then(res => { return res })
         } catch (error) {
             console.log('El producto buscado no existe', error)
         }
@@ -73,7 +72,7 @@ class ContenedorMongoDB {
 
     // Actualizar producto por id
     async updateById(id, data) {
-        try {
+        try { 
             return await this.newModel.updateOne( {_id: id}, data ).then(res => { return res })
         } catch (err) {
             console.log('Error al actualizar producto', err)

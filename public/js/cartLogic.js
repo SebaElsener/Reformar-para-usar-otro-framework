@@ -4,7 +4,7 @@ const deleteCartBtn = document.getElementsByClassName('deleteCartBtn')
 
 // Evento vaciar carrito
 deleteCartBtn[0].addEventListener('click', () => {
-    fetch('/api/carrito/63d88079a8cac0b4e425291f', { method: 'DELETE'})
+    fetch('/api/carrito/64135e4f8fad9b09d2631f4e', { method: 'DELETE'})
     .then(res => res.json())
     .then(json => {
         console.log(json)
@@ -15,7 +15,7 @@ deleteCartBtn[0].addEventListener('click', () => {
 // Evento borrar producto según su id
 for (let i=0;i < deleteProductBtn.length;i++) {
     deleteProductBtn[i].addEventListener('click', () => {
-        fetch(`/api/carrito/63d88079a8cac0b4e425291f/productos/${deleteProductBtn[i].id}`, { method: 'DELETE'})
+        fetch(`/api/carrito/64135e4f8fad9b09d2631f4e/productos/${deleteProductBtn[i].id}`, { method: 'DELETE'})
         .then(res => res.json())
         .then(cart => {
             const cartProds = cart.productos.map(product => {

@@ -1,6 +1,7 @@
 
 import { Router as router} from 'express'
 import { DAOproducts } from '../../config/config.js'
+import { logger } from '../logger.js'
 
 const routeProducts = new router()
 
@@ -14,7 +15,7 @@ routeProducts.get('/', async (req, res) => {
     res.render('index', {
         admin: administrador,
         userName: userName,
-        allProducts: productsList,
+        allProducts: productsList || ['Error'],
         productsQty: productsList.length
     })
 })
@@ -27,7 +28,7 @@ routeProducts.get('/:id', async (req, res) =>{
     } else {
     const productById = await DAOproducts.getById(req.params.id)
     productById === null
-        ? res.json({ Error:  'Producto no encontrado' })
+        ? logger.error(`Producto con ID ${req.params.id} no existe`)
         : res.json(productById)
     }
 })
@@ -60,7 +61,7 @@ routeProducts.delete('/:id', async (req, res) =>{
         const deletedId = await DAOproducts.getById(req.params.id)
         await DAOproducts.deleteById(req.params.id)
         deletedId === null
-            ? res.json( {'Producto con ID': `${req.params.id} no encontrado`} )
+            ? logger.error(`Producto con ID ${req.params.id} no encontrado`)
             : res.json( {'Producto eliminado': deletedId.product} )
     } else {
         res.json({ error : -1, descripcion: 'Sólo administradores' })

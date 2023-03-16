@@ -39,7 +39,7 @@ routeCart.delete('/:id', async (req, res) => {
 
 // Renderizar carrito
 routeCart.get('/', async (req, res) => {
-    const cart = await DAOcarrito.getById('63d88079a8cac0b4e425291f') || { productos: [] }
+    const cart = await DAOcarrito.getById('64135e4f8fad9b09d2631f4e') || { productos: [] }
     res.render('./partials/cart',
         {
             cart: cart,
