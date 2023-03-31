@@ -12,19 +12,27 @@
     </head>
 
     <body>
-
-        <div id="userContainer">
-            <h2 class="userTitle">Bienvenido <span class="userWelcome"><%= userName %></span></h2>
-            <button class="logoutBtn"><a class="logoutLink" href="/api/logout">Logout</a></button>
-        </div>
+    
+        <nav id="userContainer">
+            <div class="userDataContainer">
+                <div class="dropdown">
+                    <div class="avatarItem"><img class='userAvatar' src='<%= userData.avatar %>' alt="Avatar"></div>
+                    <div class="dropdown-content">
+                        <a class='itemLink' href="/api/productos/form">Ingreso de productos</a>
+                        <a class='itemLink' href="/api/userdata">Mis datos</a>
+                        <a class='itemLink' href="/api/logout">Logout</a>
+                    </div>
+                </div>
+                <h2 class="userTitle">Bienvenido <span id='<%= userData._id %>' class="userWelcome"><%= userName %></span></h2>
+            </div>
+            <ul class="navList">
+                <li class="navItem">
+                    <a class='cartLink' href='/api/carrito'>CARRITO</a><span class='cartLinkSpan'></span>
+                </li>
+            </ul>
+        </nav>
 
         <main id='main'>
-            <%- include('./partials/form') %>
-
-            <section id='cartsSection'>
-                <a class='cartLink' href='/api/carrito'>CARRITO</a>
-                <span class='cartLinkSpan'></span>
-            </section>
 
             <%- include('./partials/cards') %>
 

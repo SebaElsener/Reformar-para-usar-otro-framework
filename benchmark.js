@@ -1,5 +1,6 @@
 import autocannon from 'autocannon'
 import { PassThrough } from 'stream'
+import { logger } from './src/logger'
 
 function run(url) {
     const buffer = []
@@ -21,5 +22,5 @@ function run(url) {
     })
 }
 
-console.log('Running tests in parallel')
+logger.info('Running tests in parallel')
 run('http://localhost:8080/api/info')

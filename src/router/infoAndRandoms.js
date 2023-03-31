@@ -2,6 +2,7 @@
 import { Router } from 'express'
 import { fork } from 'child_process'
 import * as os from 'os'
+import { logger } from '../logger.js'
 
 const infoAndRandoms = new Router()
 
@@ -16,7 +17,7 @@ infoAndRandoms.get('/info', (req, res) => {
         memUsage: process.memoryUsage().rss,
         CPUsQty: os.cpus().length
     }
-    if (process.env.INFOCONSOLE == 'ON') { console.log(processInfo) }
+    if (process.env.INFOCONSOLE == 'ON') { logger.info(processInfo) }
     res.render('info', { processInfo })
 })
 

@@ -2,6 +2,7 @@
 import { Router as router} from 'express'
 import { DAOcarrito } from '../../config/config.js'
 import { DAOproducts } from '../../config/config.js'
+import { DAOusers } from '../../config/config.js'
 
 const routeCart = new router()
 
@@ -39,11 +40,28 @@ routeCart.delete('/:id', async (req, res) => {
 
 // Renderizar carrito
 routeCart.get('/', async (req, res) => {
-    const cart = await DAOcarrito.getById('64135e4f8fad9b09d2631f4e') || { productos: [] }
+    const userName = req.session.passport.user.user
+    const userData = await DAOusers.getByUser(userName)
+    const cart = userData.cartId == ''
+        ? { productos: [] }
+        : await DAOcarrito.getById(`${userData.cartId}`)
     res.render('./partials/cart',
         {
             cart: cart,
-            productsQty: cart.productos.length
+            productsQty: cart.productos.length,
+            userData: userData
+        }
+    )
+})
+
+routeCart.get('/purchase', async (req, res) => {
+    const userName = req.session.passport.user.user
+    const userData = await DAOusers.getByUser(userName)
+    const cart = await DAOcarrito.getById(`${userData.cartId}`)
+    res.render('./partials/purchaseOrder',
+        {
+            cart: cart,
+            userData: userData
         }
     )
 })

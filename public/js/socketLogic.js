@@ -3,63 +3,34 @@ const socket = io.connect()
 
 const messagesForm = document.getElementById('messagesForm')
 const userEmail = document.getElementById('userEmail')
-const userInputFields = document.getElementsByClassName('userEmail')
 const userName = document.getElementById('userName')
-const userLastname = document.getElementById('userLastname')
+const userPhone = document.getElementById('userPhone')
 const userAge = document.getElementById('userAge')
-const userAlias = document.getElementById('userAlias')
+const userAddress = document.getElementById('userAddress')
 const userAvatar = document.getElementById('userAvatar')
 const messageContent = document.getElementById('messageContent')
 const messagesContainer = document.getElementById('messagesContainer')
 const messagesCenterTitle = document.getElementsByClassName('messagesCenterTitle')
-const userWelcome = document.getElementsByClassName('userWelcome')
-userEmail.value = userWelcome[0].innerText
-
-//  Validaciones para campos datos usuarios
-const userDataValidations = (name, lastname, age, alias, avatar) => {
-    if (name == '' || lastname == '' || age == '' || alias == '' || avatar == ''
-    || name == ' ' || lastname == ' ' || age == ' ' || alias == ' ' || avatar == ' ') return false
-    else return true
-}
 
 //  Envio nuevo mensaje al servidor
 messagesForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    // Validando campos para habilitar envío de mensajes
-    const userFieldsValidation = userDataValidations(userName.value, userLastname.value, userAge.value, userAlias.value, userAvatar.value)
-    if (validateUserEmail() && userFieldsValidation){
-        newMessage = {
-            author: {
-                id: userEmail.value,
-                nombre: userName.value,
-                apellido: userLastname.value,
-                edad: userAge.value,
-                alias: userAlias.value,
-                avatar: userAvatar.value
-            },
-            text: messagesForm[0].value,
-            date: new Date().toLocaleString()
-        }
-        socket.emit('newMessage', newMessage)
-        messagesForm.reset()
-    } else {
-        // Muestra error de validaciones en el input de envío de mensajes
-        messageContent.style.color = 'red'
-        messageContent.style.fontWeight = 'bold'
-        messageContent.style.textAlign = 'center'
-        messageContent.value = 'Por favor complete todos sus datos'
+    // La info del user se obtiene a través de un div con display=none pasado como parámetro por ejs
+    newMessage = {
+        author: {
+            id: userEmail.innerText,
+            nombre: userName.innerText,
+            edad: userAge.innerText,
+            direccion: userAddress.innerText,
+            telefono: userPhone.innerText,
+            avatar: userAvatar.innerText
+        },
+        text: messagesForm[0].value,
+        date: new Date().toLocaleString()
     }
+    socket.emit('newMessage', newMessage)
+    messagesForm.reset()
 })
-
-//  Reset del mensaje error validación en el campo de envío de mensajes
-for (let i=0;i < userInputFields.length;i++) {
-    userInputFields[i].addEventListener('click', () => {
-        messageContent.style.color = 'black'
-        messageContent.style.fontWeight = 'normal'
-        messageContent.style.textAlign = 'left'
-        messageContent.value = ''
-    })
-}
 
 //  Schema normalización mensajes
 const authorSchema = new normalizr.schema.Entity('author')
@@ -80,9 +51,9 @@ socket.on('allMessages', data => {
         return `<div id='messagesDiv'>
                     <div class='userDataContainer'>
                     <div class='userImgContainer'>
-                        <img class='userImg' src='${message.author.avatar}' alt='[avatar usuario ${message.author.alias}]' width='30px'>
+                        <img class='userImg' src='${message.author.avatar}' alt='[avatar usuario ${message.author.id}]' width='30px'>
                     </div>
-                    <b style="color: blue" class='msgAuthor'>${message.author.alias}</b>
+                    <b style="color: blue" class='msgAuthor'>${message.author.id}</b>
                     <span style="color: brown">[ ${message.date} ]</span>
                     </div>
                     <div class='textContainer'>
@@ -92,11 +63,3 @@ socket.on('allMessages', data => {
     })
     messagesContainer.innerHTML = msgMapping.join(' ')
 })
-
-// Función validadora de email
-const validateUserEmail = () => {
-    const emailPattern =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
-    let validEmail
-    emailPattern.test(userEmail.value) ? validEmail = true : validEmail = false
-    return validEmail
-}

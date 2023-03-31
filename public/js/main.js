@@ -1,45 +1,33 @@
 
-const productsForm = document.getElementById('productsForm')
 const updateBtn = document.getElementsByClassName('updateBtn')
 const deleteBtn = document.getElementsByClassName('deleteBtn')
 const buyBtn = document.getElementsByClassName('buyBtn')
 const cartLinkSpan = document.getElementsByClassName('cartLinkSpan')
+const userWelcome = document.getElementsByClassName('userWelcome')
+const cartLink = document.getElementsByClassName('cartLink')
+let cartId
 
-// Evento nuevo ingreso de producto al servidor
-productsForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    newProduct = {
-        product: productsForm[0].value,
-        price: productsForm[1].value,
-        stock: productsForm[2].value,
-        description: productsForm[3].value,
-        code: productsForm[4].value,
-        thumbnail: productsForm[5].value
+//Evento para mostrar cantidad items carrito en barra navegación
+window.addEventListener('load', async () => {
+    let userCart
+    await fetch('/api/userdata/getuser')
+        .then(res => res.json())
+        .then(json => {
+            userCart = json.cartId
+            cartLink[0].id = userCart
+        })
+    if (userCart == '') { cartLinkSpan[0].innerHTML = ': VACIO' }
+    else {
+    fetch(`/api/carrito/${userCart}/productos`)
+        .then(res => res.json())
+        .then(cart => {
+            cartLinkSpan[0].innerHTML =
+                `: ${cart === null || cart.productos.length === 0
+                    ? 'VACIO'
+                    : cart.productos.length + ' PRODUCTO(S)'}
+                `
+        })
     }
-    fetch('/api/productos/',
-        {
-            method: 'POST',
-            body: JSON.stringify(newProduct),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    ).then(res => {
-        document.location.reload()}
-    )
-    // Reset del form luego del ingreso
-    productsForm.reset()
-})
-
-// Evento para mostrar contenido carrito al cargar ventana actual
-window.addEventListener('load', () => {
-    fetch('/api/carrito/64135e4f8fad9b09d2631f4e/productos')
-    .then(res => res.json())
-    .then(cart => {
-        let prodsQty = []
-        cart === null ? true : prodsQty = cart.productos
-        cartLinkSpan[0].innerHTML = `: ${prodsQty.length} PRODUCTO(S)`
-    })
 })
 
 // Evento borrar producto
@@ -85,13 +73,34 @@ for (let i=0; i < updateBtn.length; i++) {
 
 // Evento comprar producto
 for (let i=0;i < buyBtn.length;i++) {
-    buyBtn[i].addEventListener('click', () => {
+    buyBtn[i].addEventListener('click', async () => {
         // fetch para traer todos los productos en route auxiliar arrayproductos
-        fetch('/api/productos/arrayproductos').then(res => res.json())
-        .then(productos => {
+        await fetch('/api/productos/arrayproductos').then(res => res.json())
+        .then(async productos => {
             const selectedProduct = productos.find(product => product.id === buyBtn[i].id)
-            // Fetch para agregar producto comprado al carrito
-            fetch(`/api/carrito/64135e4f8fad9b09d2631f4e/productos/${buyBtn[i].id}`,
+            // Generando un nuevo carrito en caso de que no exista ninguno para el usuario logueado
+            if (!cartLink[0].id) {
+                await fetch('/api/carrito', { method: 'POST' })
+                    .then(res => res.json())
+                    .then(async newCart => {
+                        cartLink[0].id = newCart._id
+                        cartId = newCart._id
+                        const userIdAndCartId = { userId: userWelcome[0].id, cartId: cartId }
+                        await fetch('/api/userdata/',
+                            {
+                                method: 'PUT',
+                                body: JSON.stringify(userIdAndCartId),
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            })
+                            .then(res => res.json())
+                            .then(json => console.log(json))
+                    })
+            }
+            //Fetch para agregar producto comprado al carrito
+            cartId = cartLink[0].id
+            fetch(`/api/carrito/${cartId}/productos/${buyBtn[i].id}`,
                 {
                     method: 'POST',
                     body: JSON.stringify(selectedProduct),

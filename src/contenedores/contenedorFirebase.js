@@ -1,5 +1,7 @@
 
-import { createRequire } from 'node:module';
+import { createRequire } from 'node:module'
+import { logger } from '../logger.js'
+
 const require = createRequire(import.meta.url)
 const serviceAccount = require('../../config/coder-test-67523-firebase-adminsdk-w5t74-8bca7fec93.json')
 const admin = require("firebase-admin")
@@ -7,7 +9,7 @@ const admin = require("firebase-admin")
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 })
-console.log('Base de datos conectada')
+logger.info('Base de datos conectada')
 const db = admin.firestore()
 
 class ContenedorFirebase {
@@ -28,7 +30,7 @@ class ContenedorFirebase {
             const data = docs.map(doc => ({id: doc.id, ...doc.data()}))
             return data
         } catch (error) {
-            console.log('Error al leer la base de datos', error)
+            logger.error('Error al leer la base de datos', error)
         }
     }
 
@@ -40,7 +42,7 @@ class ContenedorFirebase {
             const data = { _id: id, ...item.data() }
             return data
         } catch (error) {
-            console.log('El producto buscado no existe', error)
+            logger.error('El producto buscado no existe', error)
         }
     }
 
@@ -50,7 +52,7 @@ class ContenedorFirebase {
             const doc = this.query.doc(`${id}`)
             await doc.delete()
         } catch (err) {
-            console.log('Error al eliminar producto', err)
+            logger.error('Error al eliminar producto', err)
         }
     }
 
@@ -61,7 +63,7 @@ class ContenedorFirebase {
             const doc = this.query.doc()
             await doc.create(product)
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -71,7 +73,7 @@ class ContenedorFirebase {
             const doc = this.query.doc(`${id}`)
             await doc.update(data)
         } catch (err) {
-            console.log('Error al actualizar producto', err)
+            logger.error('Error al actualizar producto', err)
         }
     }
 
@@ -86,7 +88,7 @@ class ContenedorFirebase {
             const doc = this.query.doc()
             await doc.create(newCart)
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -100,7 +102,7 @@ class ContenedorFirebase {
             const updatedCart = await this.getById(id)
             return updatedCart
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -115,7 +117,7 @@ class ContenedorFirebase {
             const updatedCart = await this.getById(id)
             return updatedCart
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 

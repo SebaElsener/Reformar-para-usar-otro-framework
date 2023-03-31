@@ -12,13 +12,24 @@
 
         <div class='cartsContainer'>
 
-            <div class='cartTitleAndDeleteBtn'>
-                <h2 class='cartH2'>Carrito</h2>
-                <a href='/api/productos' class='backLink'>Seguir comprando...</a>
-                <button class='deleteCartBtn'>Eliminar carrito</button>
-            </div>
+            <nav id="userContainer">
+                <div class="userDataContainer">
+                    <div class="dropdown">
+                        <div class="avatarItem"><img class='userAvatar' src='<%= userData.avatar %>' alt="Avatar"></div>
+                        <div class="dropdown-content">
+                            <a class='itemLink' href="/api/logout">Logout</a>
+                        </div>
+                    </div>
+                    <h2 class="userTitle"><%= userData.user %></h2>
+                </div>
+                <ul class="navList cartNav">
+                    <h2 class='cartH2'>Carrito</h2>
+                </ul>
+            </nav>
 
             <div class='cartProducts'>
+                <a href='/api/productos' class='backLink'>Seguir comprando...</a>
+
                 <div class='products'>
                     <% if (productsQty) { %>
                         <% cart.productos.forEach(function(product) { %>
@@ -44,6 +55,10 @@
                         </div>
                     <% } %>
                 </div>
+
+                <button id='endPurchaseBtn'>Generar orden de compra</button>
+                <button class='deleteCartBtn'>Eliminar carrito</button>
+
             </div>
 
         </div>

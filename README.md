@@ -1,65 +1,25 @@
 
-## LOGGERS, GZIP Y ANALISIS DE PERFORMANCE
+## TERCERA ENTREGA DEL PROYECTO FINAL
 #
 
-* Verificar sobre la ruta /info con y sin compresión, la diferencia de cantidad de bytes devueltos en un caso y otro:
+* Ante la incorporación de un usuario, el servidor enviará un email al administrador con todos los datos de registro y asunto 'nuevo registro', a una dirección que se encuentre por el momento almacenada en una constante global:
 
-**Con compresión**
-````
-GET	http://localhost:8080/api/info
-Estado  200 OK
-Versión HTTP/1.1
-Transferido 836 B (tamaño 1,58 kB)
-````
-**Sin compresión**
-````
-GET http://localhost:8080/api/info
-Estado  200 OK
-Versión HTTP/1.1
-Transferido 1,82 kB (tamaño 1,58 kB)
-````
+Ver archivo:
+
+**/nodemailer/Nuevo registro.png**
 #
 
-* Luego implementar loggueo (con alguna librería vista en clase) que registre lo siguiente:
-Ruta y método de todas las peticiones recibidas por el servidor (info)
-Ruta y método de las peticiones a rutas inexistentes en el servidor (warning)
-Errores lanzados por las apis de mensajes y productos, únicamente (error)
-
-Ver archivo **/log/logs.log**
-
-#
-* Perfilamiento del servidor (*con console.log ruta /api/info*):
+* Envío de un email y un mensaje de whatsapp al administrador desde el servidor, a un número de contacto almacenado en una constante global:
 
 Ver archivos:
 
-**/profiling/processConsole-v8.txt**
-
-**/profiling/ArtilleryConsole.txt**
-
-Modo inspect con Chrome:
-
-Ver archivo **/profiling/NodeInspectConsole.png**
-
+**/nodemailer/Orden de compra.png**
+**/twilio/whatsapp al administrador.jpg**
 #
-* Perfilamiento del servidor (*sin console.log ruta /api/info*):
 
-Ver archivos:
+* El usuario recibirá un mensaje de texto al número que haya registrado, indicando que su pedido ha sido recibido y se encuentra en proceso:
 
-**/profiling/processSinConsole-v8.txt**
+Ver archivo:
 
-**/profiling/ArtillerySinConsole.txt**
-
-Modo inspect con Chrome:
-
-Ver archivo **/profiling/NodeInspectSinConsole.png**
-
+**/twilio/SMS al cliente.jpg**
 #
-* Operaciones con *Autocannon*
-Ver archivos:
-
-**/profiling/Autocannon.png**
-
-**/profiling/flamegraph.html**
-
-#
-**Conslusión:**  Al agregar la salida por console.log de la información que muestra la ruta /info, y ser un proceso bloqueante, demora más los procesos de carga.

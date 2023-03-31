@@ -10,20 +10,23 @@
     "express-session": "^1.17.3",
     "firebase-admin": "^11.5.0",
     "mongoose": "^6.8.4",
+    "nodemailer": "^6.9.1",
     "normalizr": "^3.6.2",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pino": "^8.11.0",
     "socket.io": "^4.6.1",
+    "twilio": "^4.9.0",
     "yargs": "^17.7.1"
   },
-  "name": "usando-el-objeto-process-02-03-23",
+  "name": "tercera-entrega-del-proyecto-final-30-03-23",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "test": "node benchmark.js",
     "start": "0x src/server.js",
-    "dev": "nodemon --watch src src/server.js"
+    "dev": "nodemon --watch src src/server.js",
+    "cluster": "node src/server.js -m=CLUSTER"
   },
   "type": "module",
   "keywords": [],

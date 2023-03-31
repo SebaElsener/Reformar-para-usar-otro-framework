@@ -1,21 +1,68 @@
+
 const products = document.getElementsByClassName('products')
 const deleteProductBtn = document.getElementsByClassName('deleteProductBtn')
 const deleteCartBtn = document.getElementsByClassName('deleteCartBtn')
+const endPurchaseBtn = document.getElementById('endPurchaseBtn')
+const emptyCart = document.getElementsByClassName('emptyCart')
+const backLink = document.getElementsByClassName('backLink')
+
+let userCartId
+let userId
+let userName
+let userEmail
+
+if (emptyCart[0]) {
+    endPurchaseBtn.style.display = 'none'
+    deleteCartBtn[0].style.display = 'none'
+    backLink[0].style.display = 'none'
+}
+
+const userData = async () => {
+    // Traer ID user y ID carrito asociado al user
+    await fetch('/api/userdata/getuser')
+        .then(res => res.json())
+        .then(json => {
+            userId = json._id
+            userCartId = json.cartId
+            userEmail = json.user
+            userName = json.name
+        })
+}
 
 // Evento vaciar carrito
-deleteCartBtn[0].addEventListener('click', () => {
-    fetch('/api/carrito/64135e4f8fad9b09d2631f4e', { method: 'DELETE'})
-    .then(res => res.json())
-    .then(json => {
-        console.log(json)
-        document.location.reload()
-    })
+deleteCartBtn[0].addEventListener('click', async () => {
+    await userData()
+    // Delete ID carrito en documento user
+    const data = { userId: userId, cartId: '' }
+    await fetch('/api/userdata/',
+        {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(json => console.log(json))
+    // Delete carrito
+    await fetch(`/api/carrito/${userCartId}`, { method: 'DELETE'})
+        .then(res => res.json())
+        .then(async json => {
+            console.log(json)
+        })
+
+    document.location.reload()
 })
 
 // Evento borrar producto según su id
 for (let i=0;i < deleteProductBtn.length;i++) {
-    deleteProductBtn[i].addEventListener('click', () => {
-        fetch(`/api/carrito/64135e4f8fad9b09d2631f4e/productos/${deleteProductBtn[i].id}`, { method: 'DELETE'})
+    deleteProductBtn[i].addEventListener('click', async () => {
+        await fetch('/api/userdata/getuser')
+        .then(res => res.json())
+        .then(json => {
+            userCartId = json.cartId
+        })
+        fetch(`/api/carrito/${userCartId}/productos/${deleteProductBtn[i].id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(cart => {
             const cartProds = cart.productos.map(product => {
@@ -40,3 +87,8 @@ for (let i=0;i < deleteProductBtn.length;i++) {
         })
     })
 }
+
+// Evento generar orden de compra
+endPurchaseBtn.addEventListener('click', async () => {
+    document.location.href = '/api/carrito/purchase'
+})

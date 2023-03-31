@@ -3,25 +3,13 @@
 
     <h2 class='messagesCenterTitle' style="text-align: center; margin-bottom: 10px">Centro de mensajes</h2>
 
-    <div class="userInfo">
-        <div>
-            <label class="userEmailLbl" for="userEmail">Email: </label>
-            <input class='userEmail' id='userEmail' type="email" name='userEmail' placeholder="Ingrese su email para poder enviar mensajes" disabled>
-            <label class="userEmailLbl" for="userName">Nombre: </label>
-            <input class='userEmail' id='userName' type="text" name='userName' placeholder="Ingrese su nombre" required>
-        </div>
-        <div>
-            <label class="userEmailLbl" for="userLastname">Apellido: </label>
-            <input class='userEmail' id='userLastname' type="text" name='userLastname' placeholder="Ingrese su apellido" required>
-            <label class="userEmailLbl" for="userAge">Edad: </label>
-            <input class='userEmail' id='userAge' type="number" name='userAge' placeholder="Ingrese su edad" required>
-        </div>
-        <div>
-            <label class="userEmailLbl" for="userAlias">Alias: </label>
-            <input class='userEmail' id='userAlias' type="text" name='userAlias' placeholder="Ingrese su alias" required>
-            <label class="userEmailLbl" for="userAvatar">Avatar: </label>
-            <input class='userEmail' id='userAvatar' type="url" name='userAvatar' placeholder="Ingrese link a su avatar" required>
-        </div>
+    <div id="userInfo">
+        <p id="userEmail"><%= userData.user %></p>
+        <p id="userName"><%= userData.name %></p>
+        <p id="userAge"><%= userData.age %></p>
+        <p id="userAddress"><%= userData.address %></p>
+        <p id="userPhone"><%= userData.phone %></p>
+        <p id="userAvatar"><%= userData.avatar %></p>
     </div>
 
     <div id="messagesContainer">

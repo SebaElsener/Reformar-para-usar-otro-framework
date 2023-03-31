@@ -1,6 +1,7 @@
 
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import { logger } from '../logger.js'
 
 dotenv.config()
 
@@ -10,14 +11,13 @@ mongoose.connect(process.env.MONGOURI,
         useUnifiedTopology: true
     }, error => {
         if(error) throw new Error(`Error al conectar a base de datos, ${error}`)
-        console.log('Base de datos conectada')
+        logger.info('Base de datos conectada')
     }
 )
 
 class ContenedorMongoDB {
     
-    //  Con los datos recibidos de DAOproductsMongoBD (clase extendida) crea una nueva colección
-    //  y un nuevo schema, tanto para productos como para carrito
+    //  Con los datos recibidos de los DAOS (clase extendida) crea una nueva colección y un nuevo schema
     constructor (collection, schema) {
         const newSchema = new mongoose.Schema(schema)
         this.newModel = mongoose.model(collection, newSchema)
@@ -29,7 +29,7 @@ class ContenedorMongoDB {
         try {
             return await this.newModel.find().lean()
         } catch (error) {
-            console.log('Error al leer la base de datos', error)
+            logger.error('Error al leer la base de datos', error)
         }
     }
 
@@ -38,7 +38,7 @@ class ContenedorMongoDB {
         try {
             return await this.newModel.findOne( {_id: id} ).then(res => { return res })
         } catch (error) {
-            console.log('El producto buscado no existe', error)
+            logger.error('El ID buscado no existe', error)
         }
     }
 
@@ -47,7 +47,7 @@ class ContenedorMongoDB {
         try {
             return await this.newModel.deleteOne( {_id: id} ).then(res => { return res })
         } catch (err) {
-            console.log('Error al eliminar producto', err)
+            logger.error('Error al eliminar producto', err)
         }
     }
 
@@ -56,7 +56,7 @@ class ContenedorMongoDB {
         try {
             return await this.newModel.deleteMany({}).then(res => { return res })
         } catch (err) {
-            console.log('Error al eliminar todos los productos', err)
+            logger.error('Error al eliminar todos los productos', err)
         }
     }
 
@@ -66,16 +66,16 @@ class ContenedorMongoDB {
         try {
             await new this.newModel(product).save().then(res => { return res })
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
     // Actualizar producto por id
     async updateById(id, data) {
-        try { 
-            return await this.newModel.updateOne( {_id: id}, data ).then(res => { return res })
+        try {
+            return await this.newModel.updateOne({_id: id}, { $set: data })
         } catch (err) {
-            console.log('Error al actualizar producto', err)
+            logger.error('Error al actualizar', err)
         }
     }
 
@@ -84,12 +84,12 @@ class ContenedorMongoDB {
     async saveCart () {
         try {
             const newCart = {
-                timestamp: Date.now(),
+                timestamp: Date.now().toLocaleString(),
                 productos: []
             }
-            await new this.newModel(newCart).save().then(res => { return res })
+            return await new this.newModel(newCart).save()
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -100,7 +100,7 @@ class ContenedorMongoDB {
             const updatedCart = await this.getById(id)
             return updatedCart
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -115,7 +115,7 @@ class ContenedorMongoDB {
             const updatedCart = await this.getById(id)
             return updatedCart
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -127,7 +127,7 @@ class ContenedorMongoDB {
         try {
             return await this.newModel(item).save().then(res => { return JSON.stringify(res) })
         } catch (error) {
-            console.log(`Error al escribir en base de datos, ${error}`)
+            logger.error(`Error al escribir en base de datos, ${error}`)
         }
     }
 
@@ -139,7 +139,7 @@ class ContenedorMongoDB {
             }
             return matchedUser
         } catch (error) {
-            console.log(`El usuario ya existe, ${error}`)
+            logger.error(`Error al buscar usuario, ${error}`)
         }
     }
 

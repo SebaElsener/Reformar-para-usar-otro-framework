@@ -1,6 +1,7 @@
 
 import { Router as router} from 'express'
 import { DAOproducts } from '../../config/config.js'
+import { DAOusers } from '../../config/config.js'
 import { logger } from '../logger.js'
 
 const routeProducts = new router()
@@ -8,16 +9,22 @@ const routeProducts = new router()
 // Var para habilitar la modificación o alta de productos
 const administrador = true
 
-// Renderiza todos los productos y el form de nuevos ingresos
+// Renderiza página pincipal
 routeProducts.get('/', async (req, res) => {
-    const userName = req.session.passport.user.user
     const productsList = await DAOproducts.getAll()
+    const userName = req.session.passport.user.user
+    const userData = await DAOusers.getByUser(userName)
     res.render('index', {
         admin: administrador,
         userName: userName,
+        userData: userData,
         allProducts: productsList || ['Error'],
         productsQty: productsList.length
     })
+})
+
+routeProducts.get('/form', (req, res) => {
+    res.render('./partials/form')
 })
 
 // devuelve un producto según su id
