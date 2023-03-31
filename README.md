@@ -23,3 +23,11 @@ Ver archivo:
 
 **/twilio/SMS al cliente.jpg**
 #
+
+* Realizar una prueba de performance en modo local, con y sin cluster, utilizando Artillery en el endpoint del listado de productos (con el usuario una vez logueado). Verificar los resultados:
+
+Ver archivos:
+
+**/result_cluster.txt**
+**/result_fork.txt**
+#
