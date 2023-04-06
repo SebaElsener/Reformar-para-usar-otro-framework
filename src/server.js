@@ -24,7 +24,7 @@ import compression from 'compression'
 import routeError from './middleware/routeError.js'
 import { logs } from './middleware/logs.js'
 import userData from './router/userData.js'
-import { logger } from './logger.js'
+import { infoLogger, errorLogger } from './logger.js'
 
 dotenv.config()
 
@@ -69,6 +69,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 // Middleware para registrar todas la peticiones recibidas
 app.use(logs)
+app.use('/', userLogin)
 app.use('/api/productos', userLoginWatcher, routeProducts)
 app.use('/api/carrito', userLoginWatcher, routeCart)
 app.use('/api/userdata', userLoginWatcher, userData)
@@ -82,7 +83,7 @@ app.use('/api/', infoAndRandoms)
 app.use(routeError)
 
 io.on('connection', async socket => {
-    logger.info('Nuevo cliente conectado!')
+    infoLogger.info('Nuevo cliente conectado!')
     // Envío listado completo de mensajes a todos los clientes conectados
     io.sockets.emit('allMessages', {
         normalizedMessages: normalizeMessages(await messages.getAll()),
@@ -112,20 +113,20 @@ const { PORT, clusterMode } = yargs
 if (clusterMode === 'CLUSTER' && cluster.isPrimary) {
     const CPUsQty = os.cpus().length
 
-    logger.info('SERVIDOR PRIMARIO DEL CLUSTER')
-    logger.info('Número de procesadores: ' + CPUsQty)
-    logger.info('PID:' + process.pid)
+    infoLogger.info('SERVIDOR PRIMARIO DEL CLUSTER')
+    infoLogger.info('Número de procesadores: ' + CPUsQty)
+    infoLogger.info('PID:' + process.pid)
 
     for (let i = 0; i < CPUsQty; i++) {
         cluster.fork()
     }
     cluster.on('exit', worker => {
-        logger.info(`Worker ${worker.process.pid} died on ${new Date().toLocaleString()}`)
+        infoLogger.info(`Worker ${worker.process.pid} died on ${new Date().toLocaleString()}`)
         cluster.fork()
     })
 } else {
     const connectedServer = httpServer.listen(PORT, () => {
-        logger.info(`http server escuchando en puerto ${connectedServer.address().port}`)
+        infoLogger.info(`http server escuchando en puerto ${connectedServer.address().port}`)
     })
-    connectedServer.on('error', error => logger.error(`Error en servidor ${error}`))
+    connectedServer.on('error', error => errorLogger.error(`Error en servidor ${error}`))
 }

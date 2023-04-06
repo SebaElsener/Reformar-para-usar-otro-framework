@@ -439,6 +439,10 @@ td {
     text-align: center;
 }
 
+.usersAdminTd {
+    min-width: 300px;
+}
+
 tbody tr:nth-child(odd) {
     background-color: rgba(119, 165, 240, 0.921);
 }
@@ -560,7 +564,8 @@ tbody tr:nth-child(even) {
 }
 
 #loginForm,
-#regForm {
+#regForm,
+#userDataForm {
     background-color: #c5dbee;
     display: flex;
     flex-direction: column;
@@ -570,7 +575,8 @@ tbody tr:nth-child(even) {
     margin: 20px;
 }
 
-#regForm {
+#regForm,
+#userDataForm {
     align-items: center;
 }
 

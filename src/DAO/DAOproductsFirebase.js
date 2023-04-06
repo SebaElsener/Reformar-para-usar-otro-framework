@@ -1,5 +1,5 @@
 
-import ContenedorFirebase from "../contenedores/contenedorFirebase.js"
+import ContenedorFirebase from "../persistence/contenedores/contenedorFirebase.js"
 
 class DAOproductsFirebase extends ContenedorFirebase {
 

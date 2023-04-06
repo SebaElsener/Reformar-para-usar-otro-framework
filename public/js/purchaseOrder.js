@@ -10,16 +10,20 @@ cancelPurchaseBtn[0].addEventListener('click', () => {
     document.location.href = '/api/productos'
 })
 
+const orderMessage = 'Orden de compra generada con éxito,\
+    Hemos enviado un mensaje a su casilla y teléfono de registro"\
+    ¡Muchas gracias!  Será redirigido a home luego de unos segundos...'
+
 // Confirmar orden de compra
 confirmPurchaseBtn.addEventListener('click', async () => {
     await fetch('/api/userdata/purchaseorder')
     Toastify({
-        text: "Orden de compra generada con éxito  ¡Muchas gracias!  Será redirigido a home luego de unos segundos...",
+        text: orderMessage,
         offset: {
             x: 150,
             y: 150
         },
-        duration: 5000,
+        duration: 7000,
         destination: "/api/productos",
         newWindow: false,
         close: false,

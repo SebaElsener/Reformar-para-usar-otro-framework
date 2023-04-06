@@ -19,10 +19,27 @@ productsForm.addEventListener('submit', (e) => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
-    ).then(res => {
-        document.location.reload()}
-    )
-    // Reset del form luego del ingreso
-    productsForm.reset()
+        })
+        .then(res => res.json())
+        .then(json => {
+            Toastify({
+                text: `PRODUCTO ${json.product} AGREGADO CON EXITO`,
+                offset: {
+                    x: 150,
+                    y: 150
+                },
+                duration: 5000,
+                newWindow: false,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+              }).showToast()
+            
+            // Reset del form luego del ingreso
+            productsForm.reset() 
+        })
 })

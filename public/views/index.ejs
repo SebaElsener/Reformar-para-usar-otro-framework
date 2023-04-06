@@ -18,7 +18,12 @@
                 <div class="dropdown">
                     <div class="avatarItem"><img class='userAvatar' src='<%= userData.avatar %>' alt="Avatar"></div>
                     <div class="dropdown-content">
-                        <a class='itemLink' href="/api/productos/form">Ingreso de productos</a>
+                        <% if (userName === 'admin@admin.com') { %>
+                            <a class='itemLink' href="/api/userdata/usersadmin">Administrar usuarios</a>
+                        <% } %>
+                        <% if (userData.admin === 'true') { %>
+                            <a class='itemLink' href="/api/productos/form">Ingreso de productos</a>
+                        <% } %>
                         <a class='itemLink' href="/api/userdata">Mis datos</a>
                         <a class='itemLink' href="/api/logout">Logout</a>
                     </div>

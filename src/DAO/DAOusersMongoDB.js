@@ -1,5 +1,5 @@
 
-import ContenedorMongoDB from '../contenedores/contenedorMongoDB.js'
+import ContenedorMongoDB from '../persistence/contenedores/contenedorMongoDB.js'
 
 const userSchema = 
     {
@@ -10,7 +10,8 @@ const userSchema =
         age: {type: Number, require: true, max: 99},
         phone: {type: String, require: true, max: 300},
         avatar: {type: String, require: true, max: 300},
-        cartId: {type: String, require: false, max: 300}
+        cartId: {type: String, require: false, max: 300},
+        admin: {type: String, require: false, max: 5}
     }
 
 class DAOusersMongoDB extends ContenedorMongoDB {

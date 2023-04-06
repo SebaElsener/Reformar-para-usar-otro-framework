@@ -22,7 +22,7 @@
                     <div class='buyBtnContainer'>
                         <button class='buyBtn' id='<%= product._id %>'>COMPRAR</button>
                     </div>
-                    <% if (admin) { %>
+                    <% if (userData.admin === 'true') { %>
                         <div class='actionBtnsContainer'>
                             <button class='updateBtn'>ACTUALIZAR</button>
                             <button class='deleteBtn'>ELIMINAR</button>

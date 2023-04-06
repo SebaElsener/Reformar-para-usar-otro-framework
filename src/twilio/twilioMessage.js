@@ -1,6 +1,6 @@
 
 import twilio from 'twilio'
-import { logger } from '../logger.js'
+import { errorLogger } from '../logger.js'
 
 const accountSid = process.env.TWILIOACCOUNTSID
 const authToken = process.env.TWILIOTOKEN
@@ -18,7 +18,7 @@ const twilioSender = async (to, smsBody, type) => {
          to: destNbr,
       })
    } catch (error) {
-      logger.error('Error al enviar SMS al cliente', error)
+      errorLogger.error(error, 'Error al enviar SMS al cliente')
    }
 }
 

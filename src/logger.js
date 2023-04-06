@@ -1,8 +1,20 @@
 
 import pino from 'pino'
 
-export const logger = 
+const errorLogger = 
     pino({
-        level: 'info',
+        level: 'warn',
+        timestamp: pino.stdTimeFunctions.isoTime
     },
     pino.destination('./log/logs.log'))
+
+const infoLogger = 
+    pino({
+        level: 'info',
+        timestamp: pino.stdTimeFunctions.isoTime
+    })
+
+export {
+    errorLogger,
+    infoLogger
+}

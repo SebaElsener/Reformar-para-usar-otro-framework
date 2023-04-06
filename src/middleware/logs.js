@@ -1,7 +1,7 @@
 
-import { logger } from '../logger.js'
+import { infoLogger } from '../logger.js'
 
 export const logs = (req, res, next) => {
-    logger.info(`ruta '${req.path}' método '${req.method}'`)
+    infoLogger.info(`ruta '${req.path}' metodo '${req.method}'`)
     next()
 }

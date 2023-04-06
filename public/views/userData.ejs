@@ -3,16 +3,15 @@
 <html lang="es">
 
     <head>
-
         <%- include('./partials/head') %>
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     </head>
 
     <body>
 
         <h2 class="formTitle">Mis datos</h2>
 
-        <form id='regForm' autocomplete="off">
+        <form id='userDataForm' autocomplete="off">
             <label class="userName" for="userName"><span class="labelTitle">Mi email</span>
                 <input id='userName' class="userNameInput" name='username' type="email" value="<%= userData.user %>" disabled>
                 <input id='_id' type="hidden" value="<%= userData._id %>" name="_id">
@@ -31,15 +30,18 @@
                 <input id='age' class="userNameInput" name='age' type="number" value="<%= userData.age %>">
             </label>
             <label class="userName" for="phone"><span class="labelTitle">Mi teléfono</span>
-                <input id='age' class="userNameInput" name='phone' type="text" value="<%= userData.phone %>">
+                <input id='phone' class="userNameInput" name='phone' type="text" value="<%= userData.phone %>">
             </label>
             <label class="userName" for="avatar"><span class="labelTitle">Mi foto/Avatar</span>
                 <input id='avatar' class="userNameInput" name='avatar' type="url" value="<%= userData.avatar %>">
             </label>
-            <button class="regBtn" type="submit" formmethod="post" formaction="/api/userdata/">Guardar</button>
+            <button class="regBtn" type="submit">Guardar</button>
         </form>
 
         <a class='formBackLink' href="/api/productos"><button class="formBackLinkBtn">Volver</button></a>
+
+        <script src="/js/userData.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     </body>
 
