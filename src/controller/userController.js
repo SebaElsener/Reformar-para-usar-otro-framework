@@ -4,7 +4,8 @@ import {
     updateUserById,
     updateUserWithCart,
     purchase,
-    getAllUsers
+    getAllUsers,
+    makeUsersAdmin
 } from '../business/userBusiness.js'
 
 const renderUserData = async (req, res) => {
@@ -50,11 +51,17 @@ const usersAdmin = async (req, res) => {
     })
 }
 
+const usersAdm = async (req, res) => {
+    const users = req.body
+    res.json(await makeUsersAdmin(users))
+}
+
 export {
     renderUserData,
     getUser,
     updateUser,
     addCartToUser,
     purchaseOrder,
-    usersAdmin
+    usersAdmin,
+    usersAdm
 }

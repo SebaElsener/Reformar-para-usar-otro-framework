@@ -365,7 +365,8 @@ h2 {
     color: rgba(34, 34, 34, 0.879);
 }
 
-#productsForm {
+#productsForm,
+#usersForm {
     background-color: rgba(98, 128, 174, 0.92);
     width: 630px;
     padding: 35px;

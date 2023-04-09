@@ -47,10 +47,15 @@ const purchase = async (userName) => {
     return userData.cartId
 }
 
+const makeUsersAdmin = async (users) => {
+    return await DAOusers.updateUsersAdmin(users)
+}
+
 export {
     getByUser,
     updateUserById,
     updateUserWithCart,
     purchase,
-    getAllUsers
+    getAllUsers,
+    makeUsersAdmin
 }

@@ -40,3 +40,18 @@
 {"level":50,"time":"2023-04-06T20:46:29.915Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
 {"level":50,"time":"2023-04-06T20:46:57.544Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
 {"level":50,"time":"2023-04-06T20:51:05.454Z","pid":6580,"hostname":"DESKTOP-48ND4VH","msg":"El ID buscado no existe"}
+{"level":50,"time":"2023-04-07T22:55:33.167Z","pid":16052,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T22:56:04.196Z","pid":16052,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T22:59:40.435Z","pid":9108,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:01:04.679Z","pid":1208,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:02:40.704Z","pid":2548,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":40,"time":"2023-04-07T23:20:07.236Z","pid":2548,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-07T23:21:07.399Z","pid":5036,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:21:39.066Z","pid":5036,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:26:52.793Z","pid":5036,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:27:37.645Z","pid":5376,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:32:07.037Z","pid":13772,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.initializeOrderedBulk is not a function"}
+{"level":50,"time":"2023-04-07T23:34:05.962Z","pid":13620,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, TypeError: this.newModel.collection.initializeOrderedBulk is not a function"}
+{"level":40,"time":"2023-04-07T23:42:41.614Z","pid":10632,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-07T23:49:18.756Z","pid":11644,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, ReferenceError: json is not defined"}
+{"level":50,"time":"2023-04-07T23:49:32.478Z","pid":11644,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, ReferenceError: json is not defined"}

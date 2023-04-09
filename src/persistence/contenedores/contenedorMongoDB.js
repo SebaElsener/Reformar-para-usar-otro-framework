@@ -57,7 +57,7 @@ class ContenedorMongoDB {
         try {
             return await this.newModel.deleteOne( {_id: id} ).then(res => { return res })
         } catch (err) {
-            errorLogger.error('Error al eliminar producto', err)
+            errorLogger.error('Error al eliminar item', err)
         }
     }
 
@@ -122,6 +122,18 @@ class ContenedorMongoDB {
         } catch (error) {
             errorLogger.error(`Error al buscar usuario, ${error}`)
         }
+    }
+
+    async updateUsersAdmin (users) {
+        try {
+            users.forEach(async user => {
+                await this.newModel.updateOne({_id: user.user}, {$set: {admin: user.admin}})
+            })
+            return 'DATOS ACTUALIZADOS CON EXITO'
+        } catch (error) {
+            errorLogger.error(`Error al actualizar la información, ${error}`)
+        }
+
     }
 
 }
