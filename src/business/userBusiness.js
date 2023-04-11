@@ -51,11 +51,16 @@ const makeUsersAdmin = async (users) => {
     return await DAOusers.updateUsersAdmin(users)
 }
 
+const deleteUsers = async (users) => {
+    return await DAOusers.deleteUsers(users)
+}
+
 export {
     getByUser,
     updateUserById,
     updateUserWithCart,
     purchase,
     getAllUsers,
-    makeUsersAdmin
+    makeUsersAdmin,
+    deleteUsers
 }

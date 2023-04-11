@@ -8,7 +8,8 @@ import {
     addCartToUser,
     purchaseOrder,
     usersAdmin,
-    usersAdm
+    usersAdm,
+    usersDelete
 } from '../controller/userController.js'
 
 const userData = new Router()
@@ -26,5 +27,7 @@ userData.get('/purchaseorder', purchaseOrder)
 userData.get('/usersadmin', usersAdmin)
 
 userData.put('/usersadm', usersAdm)
+
+userData.delete('/usersdelete', usersDelete)
 
 export default userData

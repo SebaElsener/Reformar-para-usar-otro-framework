@@ -136,6 +136,17 @@ class ContenedorMongoDB {
 
     }
 
+    async deleteUsers (users) {
+        try {
+            users.forEach(async user => {
+                await this.newModel.deleteOne( {_id: user} )
+            })
+            return 'USUARIOS ELIMINADOS CON EXITO'
+        } catch (error) {
+            errorLogger.error('Error al eliminar uno o más usuarios', error)
+        }
+    }
+
 }
 
 export default ContenedorMongoDB

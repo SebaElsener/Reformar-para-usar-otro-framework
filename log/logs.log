@@ -55,3 +55,27 @@
 {"level":40,"time":"2023-04-07T23:42:41.614Z","pid":10632,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
 {"level":50,"time":"2023-04-07T23:49:18.756Z","pid":11644,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, ReferenceError: json is not defined"}
 {"level":50,"time":"2023-04-07T23:49:32.478Z","pid":11644,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar la información, ReferenceError: json is not defined"}
+{"level":50,"time":"2023-04-11T22:09:10.949Z","pid":5360,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:09:32.952Z","pid":5360,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:11:34.236Z","pid":5360,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":40,"time":"2023-04-11T22:13:51.270Z","pid":13000,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-11T22:14:22.381Z","pid":13000,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:30:52.443Z","pid":11208,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:32:31.849Z","pid":9688,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (1123) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:35:54.533Z","pid":10348,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:38:58.446Z","pid":10192,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (1234) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:42:22.387Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:42:44.000Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:42:57.221Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T22:43:32.952Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T22:46:45.176Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T23:05:25.258Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T23:05:41.414Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (11111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T23:08:04.396Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":50,"time":"2023-04-11T23:10:04.468Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, ValidationError: age: Path `age` (111) is more than maximum allowed value (99)."}
+{"level":40,"time":"2023-04-11T23:10:25.793Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-11T23:27:45.820Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-11T23:28:40.875Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T23:30:34.414Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-11T23:30:48.702Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":40,"time":"2023-04-11T23:33:06.427Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}

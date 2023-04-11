@@ -11,7 +11,7 @@ const userSchema =
         phone: {type: String, require: true, max: 300},
         avatar: {type: String, require: true, max: 300},
         cartId: {type: String, require: false, max: 300},
-        admin: {type: String, require: false, max: 5}
+        admin: {type: String, require: false, max: 10}
     }
 
 class DAOusersMongoDB extends ContenedorMongoDB {

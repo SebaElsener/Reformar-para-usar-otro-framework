@@ -30,7 +30,7 @@ passport.use('register', new Strategy({
             cartId: '',
             admin: 'false'
         }
-        const savedUser = await DAOusers.save(newUser)
+        await DAOusers.save(newUser)
         const mailBodyTemplate =
             `
             <h3>Se ha creado un nuevo usuario</h3>
@@ -44,8 +44,8 @@ passport.use('register', new Strategy({
             </ul>
             `
         sendMail(process.env.GMAILUSER, 'Nuevo registro', mailBodyTemplate)
-        infoLogger.info(`Nuevo usuario ${savedUser} creado con éxito`)
-        return done(null, savedUser)
+        infoLogger.info(`Nuevo usuario ${newUser.user} creado con éxito`)
+        return done(null, newUser.user)
     }
 ))
 
