@@ -1,3 +1,4 @@
+
 import ContenedorMongoDB from '../contenedores/contenedorMongoDB.js'
 
 const productSchema = 
@@ -12,17 +13,17 @@ const productSchema =
 
 let instance = null
 
-class DAOproductsMongoDB extends ContenedorMongoDB {
+class ProductsRepositoryMongoDB extends ContenedorMongoDB {
 
     constructor (){
         super('products', productSchema)
     }
 
     static getInstance () {
-        if(!instance) { instance = new DAOproductsMongoDB() }
+        if(!instance) { instance = new ProductsRepositoryMongoDB() }
         return instance
     }
 
 }
 
-export default DAOproductsMongoDB
+export default ProductsRepositoryMongoDB

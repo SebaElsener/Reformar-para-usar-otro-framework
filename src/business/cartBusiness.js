@@ -1,6 +1,6 @@
 
 import { DAOcarrito } from '../persistence/factory.js'
-import { DAOproducts } from '../persistence/factory.js'
+import { productsRepo } from '../persistence/factory.js'
 import { DAOusers } from '../persistence/factory.js'
 
 const getDataById = async (data) => {
@@ -16,12 +16,12 @@ const saveNewCart = async () => {
 }
 
 const addNewProductToCart = async (id_prod, id_cart) => {
-    const product = await DAOproducts.getById(id_prod)
+    const product = await productsRepo.getById(id_prod)
     return await DAOcarrito.addProductById(id_cart, product)
 }
 
 const deleteProductFromCart = async (id_prod, id_cart) => {
-    const product = await DAOproducts.getById(id_prod)
+    const product = await productsRepo.getById(id_prod)
     return await DAOcarrito.deleteProductById(id_cart, product)
 }
 

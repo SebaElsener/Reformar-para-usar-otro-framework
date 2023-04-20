@@ -1,8 +1,8 @@
 
-import DAOproductsMongoDB from './DAO/DAOproductsMongoDB.js'
+import ProductsRepositoryMongoDB from './repository/productsRepositoryMongoDB.js'
+import ProductsRepositoryFirebase from './repository/ProductsRepositoryFirebase.js'
 import DAOcarritoMongoDB from './DAO/DAOcarritoMongoDB.js'
 import DAOusersMongoDB from './DAO/DAOusersMongoDB.js'
-import DAOproductsFirebase from './DAO/DAOproductsFirebase.js'
 import DAOcarritoFirebase from './DAO/DAOcarritoFirebase.js'
 import DAOusersFirebase from './DAO/DAOusersFirebase.js'
 import { infoLogger } from '../logger.js'
@@ -22,21 +22,21 @@ const persistenceMethod = DB
 
 infoLogger.info(`PERSISTENCIA: ${DB}`)
 
-let DAOproducts = null
+let productsRepo = null
 let DAOcarrito = null
 let DAOusers = null
 
 switch (persistenceMethod) {
     case 'mongoDB':
-        DAOproducts = DAOproductsMongoDB.getInstance()
+        productsRepo = ProductsRepositoryMongoDB.getInstance()
         DAOcarrito = DAOcarritoMongoDB.getInstance()
         DAOusers = DAOusersMongoDB.getInstance()
         break
     case 'firebase':
-        DAOproducts = DAOproductsFirebase.getInstance()
+        productsRepo = ProductsRepositoryFirebase.getInstance()
         DAOcarrito = DAOcarritoFirebase.getInstance()
         DAOusers = DAOusersFirebase.getInstance()
         break
 }
 
-export { DAOproducts, DAOcarrito, DAOusers }
+export { productsRepo, DAOcarrito, DAOusers }

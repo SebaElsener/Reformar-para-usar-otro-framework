@@ -4,7 +4,7 @@ import { Server as HttpServer } from 'http'
 import { Server as Socket } from 'socket.io'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
-import Messages from './persistence/DAO/DAOmessagesMongoDB.js'
+import MessageRepository from './persistence/repository/messageRepository.js'
 import normalizeMessages from './normalize/normalize.js'
 import userLogin from './router/userLogin.js'
 import homeRoute from './router/homeRoute.js'
@@ -32,7 +32,7 @@ const yargs = _yargs(hideBin(process.argv))
 const app = express()
 const httpServer = new HttpServer(app)
 const io = new Socket(httpServer)
-const messages = new Messages()
+const messages = MessageRepository.getInstance()
 
 app.set('view engine', 'ejs')
 app.set('views', './public/views')
