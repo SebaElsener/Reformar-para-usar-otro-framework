@@ -1,5 +1,5 @@
 
-import ContenedorMongoDB from '../persistence/contenedores/contenedorMongoDB.js'
+import ContenedorMongoDB from '../contenedores/contenedorMongoDB.js'
 
 const messageSchema = 
     {
@@ -15,10 +15,17 @@ const messageSchema =
         date: {type: String, require: true, max: 300}
     }
 
+let instance = null
+
 class DAOmessagesMongoDB extends ContenedorMongoDB {
 
     constructor () {
         super ('messages', messageSchema)
+    }
+
+    static getInstance () {
+        if(!instance) { instance = new DAOmessagesMongoDB() }
+        return instance
     }
 }
 

@@ -1,10 +1,10 @@
 
-import DAOproductsMongoDB from '../DAO/DAOproductsMongoDB.js'
-import DAOcarritoMongoDB from '../DAO/DAOcarritoMongoDB.js'
-import DAOusersMongoDB from '../DAO/DAOusersMongoDB.js'
-import DAOproductsFirebase from '../DAO/DAOproductsFirebase.js'
-import DAOcarritoFirebase from '../DAO/DAOcarritoFirebase.js'
-import DAOusersFirebase from '../DAO/DAOusersFirebase.js'
+import DAOproductsMongoDB from './DAO/DAOproductsMongoDB.js'
+import DAOcarritoMongoDB from './DAO/DAOcarritoMongoDB.js'
+import DAOusersMongoDB from './DAO/DAOusersMongoDB.js'
+import DAOproductsFirebase from './DAO/DAOproductsFirebase.js'
+import DAOcarritoFirebase from './DAO/DAOcarritoFirebase.js'
+import DAOusersFirebase from './DAO/DAOusersFirebase.js'
 import { infoLogger } from '../logger.js'
 import _yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
@@ -16,24 +16,26 @@ const { DB } = yargs
     })
     .argv
 
+//  Con la siguiente var elegimos el método de persistencia (pasado como argumento en línea de comando al iniciar server)
+//  Según su valor se importan y exportan las instancias de las clases para la persistencia
+const persistenceMethod = DB
+
 infoLogger.info(`PERSISTENCIA: ${DB}`)
 
 let DAOproducts = null
 let DAOcarrito = null
 let DAOusers = null
-//  Con la siguiente var elegimos el método de persistencia.
-//  Según su valor se exporta la instancia de las clases para la persistencia
-const persistenceMethod = DB
+
 switch (persistenceMethod) {
     case 'mongoDB':
-        DAOproducts = new DAOproductsMongoDB()
-        DAOcarrito = new DAOcarritoMongoDB()
-        DAOusers = new DAOusersMongoDB()
+        DAOproducts = DAOproductsMongoDB.getInstance()
+        DAOcarrito = DAOcarritoMongoDB.getInstance()
+        DAOusers = DAOusersMongoDB.getInstance()
         break
     case 'firebase':
-        DAOproducts = new DAOproductsFirebase()
-        DAOcarrito = new DAOcarritoFirebase()
-        DAOusers = new DAOusersFirebase()
+        DAOproducts = DAOproductsFirebase.getInstance()
+        DAOcarrito = DAOcarritoFirebase.getInstance()
+        DAOusers = DAOusersFirebase.getInstance()
         break
 }
 

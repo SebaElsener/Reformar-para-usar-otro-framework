@@ -4,13 +4,15 @@ import { DAOcarrito } from '../persistence/factory.js'
 import sendMail from '../nodemailer/mailSender.js'
 import { infoLogger } from '../logger.js'
 import twilioSender from '../twilio/twilioMessage.js'
+import { usersAdministrationDTO } from '../persistence/DTO/usersDTO.js'
 
 const getByUser = async (userName) => {
     return await DAOusers.getByUser(userName)
 }
 
 const getAllUsers = async () => {
-    return await DAOusers.getAll()
+    const getData = await DAOusers.getAll()
+    return usersAdministrationDTO(getData)
 }
 
 const updateUserById = async (userDBid, userInfoToUpdate) => {

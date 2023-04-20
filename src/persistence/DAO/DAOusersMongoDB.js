@@ -1,5 +1,5 @@
 
-import ContenedorMongoDB from '../persistence/contenedores/contenedorMongoDB.js'
+import ContenedorMongoDB from '../contenedores/contenedorMongoDB.js'
 
 const userSchema = 
     {
@@ -14,10 +14,17 @@ const userSchema =
         admin: {type: String, require: false, max: 10}
     }
 
+let instance = null
+
 class DAOusersMongoDB extends ContenedorMongoDB {
 
     constructor () {
         super ('users', userSchema)
+    }
+
+    static getInstance () {
+        if(!instance) { instance = new DAOusersMongoDB() }
+        return instance
     }
 }
 

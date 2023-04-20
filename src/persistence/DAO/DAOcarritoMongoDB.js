@@ -1,5 +1,5 @@
 
-import ContenedorMongoDB from "../persistence/contenedores/contenedorMongoDB.js"
+import ContenedorMongoDB from "../contenedores/contenedorMongoDB.js"
 
 const cartSchema = 
     {
@@ -7,10 +7,17 @@ const cartSchema =
         productos: {type: Array, require: true},
     }
 
+let instance = null
+
 class DAOcarritoMongoDB extends ContenedorMongoDB {
 
     constructor (){
         super('cart', cartSchema)
+    }
+
+    static getInstance () {
+        if(!instance) { instance = new DAOcarritoMongoDB() }
+        return instance
     }
 
 }

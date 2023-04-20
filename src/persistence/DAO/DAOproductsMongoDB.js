@@ -1,4 +1,4 @@
-import ContenedorMongoDB from '../persistence/contenedores/contenedorMongoDB.js'
+import ContenedorMongoDB from '../contenedores/contenedorMongoDB.js'
 
 const productSchema = 
     {
@@ -10,10 +10,17 @@ const productSchema =
         thumbnail: {type: String, require: true, max: 50}
     }
 
+let instance = null
+
 class DAOproductsMongoDB extends ContenedorMongoDB {
 
     constructor (){
         super('products', productSchema)
+    }
+
+    static getInstance () {
+        if(!instance) { instance = new DAOproductsMongoDB() }
+        return instance
     }
 
 }

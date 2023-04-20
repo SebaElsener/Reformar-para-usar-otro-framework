@@ -24,7 +24,6 @@ class ContenedorMongoDB {
     }
 
     //  Métodos comunes productos, carrito, usuarios y mensajes
-
     // Guardar datos
     async save (data) {
         try {
@@ -71,7 +70,6 @@ class ContenedorMongoDB {
     }
 
     //  ----------- Métodos productos -----------  //
-
     // Actualizar producto por id
     async updateById(id, data) {
         try {
@@ -108,10 +106,7 @@ class ContenedorMongoDB {
         }
     }
 
-    //////////////////////////////////////
     ////////  Métodos usuarios  //////////
-    //////////////////////////////////////
-
     async getByUser (username) {
         try {
             const matchedUser = await this.newModel.findOne({ user: username })
@@ -146,7 +141,6 @@ class ContenedorMongoDB {
             errorLogger.error('Error al eliminar uno o más usuarios', error)
         }
     }
-
 }
 
 export default ContenedorMongoDB
