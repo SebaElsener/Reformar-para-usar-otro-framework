@@ -1,6 +1,6 @@
 
-import { DAOproducts } from '../persistence/config/config.js'
-import { DAOusers } from '../persistence/config/config.js'
+import { DAOproducts } from '../persistence/factory.js'
+import { DAOusers } from '../persistence/factory.js'
 
 const mainPage = async (userName) => {
     const productsList = await DAOproducts.getAll()

@@ -26,7 +26,8 @@
     "test": "node benchmark.js",
     "start": "0x src/server.js",
     "dev": "nodemon --watch src src/server.js",
-    "cluster": "node src/server.js -m=CLUSTER"
+    "cluster": "node src/server.js -m=CLUSTER",
+    "firebase": "nodemon src/server.js --DB=firebase"
   },
   "type": "module",
   "keywords": [],

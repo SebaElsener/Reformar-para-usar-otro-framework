@@ -49,7 +49,6 @@ usersForm.addEventListener('submit', async (e) => {
     if (deleteArray.length !== 0) {
         const usersToDelete = []
         deleteArray.map(user => { if (user.admin) { usersToDelete.push(user.user.slice(7)) } })
-        console.log('array delete', usersToDelete)
         await fetch('/api/userdata/usersdelete',
         {
             method: 'DELETE',

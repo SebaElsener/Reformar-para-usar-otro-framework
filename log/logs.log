@@ -79,3 +79,81 @@
 {"level":50,"time":"2023-04-11T23:30:34.414Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
 {"level":50,"time":"2023-04-11T23:30:48.702Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
 {"level":40,"time":"2023-04-11T23:33:06.427Z","pid":14976,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-18T23:11:34.500Z","pid":12764,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-18T23:13:30.573Z","pid":12764,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-18T23:25:21.243Z","pid":13128,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'findOne')"}
+{"level":40,"time":"2023-04-19T00:09:09.424Z","pid":7680,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:20:48.429Z","pid":520,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, ReferenceError: where is not defined"}
+{"level":50,"time":"2023-04-19T00:21:45.533Z","pid":520,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, ReferenceError: where is not defined"}
+{"level":40,"time":"2023-04-19T00:28:04.150Z","pid":14484,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:28:05.275Z","pid":14484,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:28:22.457Z","pid":14484,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.doc(...).where is not a function"}
+{"level":50,"time":"2023-04-19T00:29:21.503Z","pid":14908,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.doc(...).where is not a function"}
+{"level":40,"time":"2023-04-19T00:35:01.401Z","pid":1448,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:36:08.789Z","pid":7608,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:36:20.781Z","pid":7608,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.get(...).where is not a function"}
+{"level":50,"time":"2023-04-19T00:39:22.519Z","pid":12424,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.query.get(...).where is not a function"}
+{"level":40,"time":"2023-04-19T00:43:00.824Z","pid":14252,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:43:02.488Z","pid":14252,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:44:25.150Z","pid":12436,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T00:44:34.405Z","pid":12436,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T00:44:54.643Z","pid":12436,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: user.data is not a function"}
+{"level":50,"time":"2023-04-19T00:50:17.195Z","pid":12424,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: result.data is not a function"}
+{"level":50,"time":"2023-04-19T00:56:04.009Z","pid":14564,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: result.data is not a function"}
+{"level":50,"time":"2023-04-19T01:00:17.397Z","pid":7932,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading '_fieldsProto')"}
+{"level":40,"time":"2023-04-19T01:09:38.893Z","pid":904,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:11:13.751Z","pid":1348,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:11:15.560Z","pid":1348,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:13:55.538Z","pid":8268,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:13:57.242Z","pid":8268,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T01:14:21.166Z","pid":8268,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":40,"time":"2023-04-19T01:21:35.809Z","pid":5580,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:21:37.019Z","pid":5580,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T01:27:35.234Z","pid":10104,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading '0')"}
+--
+{"level":50,"time":"2023-04-19T01:29:00.027Z","pid":10104,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading '0')"}
+{"level":40,"time":"2023-04-19T01:35:24.063Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-04-19T01:35:25.156Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-04-19T01:35:39.056Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":40,"time":"2023-04-19T01:35:39.735Z","pid":14084,"hostname":"DESKTOP-48ND4VH","msg":"ruta '/favicon.ico' metodo 'GET' no implementada"}
+//////
+{"level":50,"time":"2023-04-19T14:32:19.074Z","pid":11284,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T14:33:35.826Z","pid":10288,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T15:00:23.658Z","pid":12616,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: docs.data is not a function"}
+{"level":50,"time":"2023-04-19T15:07:00.508Z","pid":9448,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T15:07:36.248Z","pid":9448,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T15:09:07.284Z","pid":2848,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+{"level":50,"time":"2023-04-19T15:12:48.223Z","pid":13392,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: q.then is not a function"}
+{"level":50,"time":"2023-04-19T15:18:01.325Z","pid":7808,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Cannot read properties of undefined (reading 'data')"}
+//
+{"level":50,"time":"2023-04-19T15:21:32.550Z","pid":5488,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T15:23:30.889Z","pid":5872,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:17:16.432Z","pid":7040,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:23:28.361Z","pid":11820,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:26:33.367Z","pid":8256,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:27:10.196Z","pid":12324,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:28:47.380Z","pid":1392,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Found non-callable @@iterator"}
+{"level":50,"time":"2023-04-19T17:29:08.833Z","pid":1392,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: Found non-callable @@iterator"}
+{"level":50,"time":"2023-04-19T17:30:36.457Z","pid":4732,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:32:23.568Z","pid":2516,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T17:32:47.380Z","pid":12988,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":50,"time":"2023-04-19T18:22:46.918Z","pid":12488,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T18:26:03.479Z","pid":7752,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T18:50:11.710Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:50:11.711Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:50:24.027Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:50:24.027Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:50:36.696Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:50:36.697Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:51:22.294Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:51:22.295Z","pid":956,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T18:53:11.227Z","pid":1156,"hostname":"DESKTOP-48ND4VH","msg":"Error al buscar usuario, TypeError: this.getAll(...).map is not a function"}
+{"level":50,"time":"2023-04-19T18:53:11.229Z","pid":1156,"hostname":"DESKTOP-48ND4VH","msg":"Usuario no existe"}
+{"level":50,"time":"2023-04-19T19:42:50.342Z","pid":12568,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T20:58:01.673Z","pid":2484,"hostname":"DESKTOP-48ND4VH","msg":"Error al actualizar"}
+{"level":50,"time":"2023-04-19T20:58:02.874Z","pid":2484,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: cartToUpdate.productos is not iterable"}
+{"level":50,"time":"2023-04-19T21:00:51.893Z","pid":7200,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: doc.create(...).data is not a function"}
+{"level":50,"time":"2023-04-19T21:01:37.969Z","pid":6176,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: doc.create(...).data is not a function"}
+{"level":50,"time":"2023-04-19T21:01:53.753Z","pid":6176,"hostname":"DESKTOP-48ND4VH","msg":"Error al escribir en base de datos, TypeError: doc.create(...).data is not a function"}
+{"level":50,"time":"2023-04-19T21:57:14.531Z","pid":10672,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"Invalid From and To pair. From and To should be of the same channel","stack":"Error: Invalid From and To pair. From and To should be of the same channel\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":400,"code":21910,"moreInfo":"https://www.twilio.com/docs/errors/21910"},"msg":"Error al enviar SMS al cliente"}
+{"level":50,"time":"2023-04-19T21:57:14.585Z","pid":10672,"hostname":"DESKTOP-48ND4VH","err":{"type":"RestException","message":"The 'To' number 56 is not a valid phone number.","stack":"Error: The 'To' number 56 is not a valid phone number.\n    at success (C:\\Users\\Seba\\Desktop\\Full stack developer\\Trabajos\\4 - Backend\\Segunda entrega del proyecto final 31-01-23\\node_modules\\twilio\\lib\\base\\Version.js:79:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async twilioSender (file:///C:/Users/Seba/Desktop/Full%20stack%20developer/Trabajos/4%20-%20Backend/Segunda%20entrega%20del%20proyecto%20final%2031-01-23/src/twilio/twilioMessage.js:15:7)","status":400,"code":21211,"moreInfo":"https://www.twilio.com/docs/errors/21211"},"msg":"Error al enviar SMS al cliente"}

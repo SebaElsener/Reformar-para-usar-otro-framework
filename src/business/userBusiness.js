@@ -1,6 +1,6 @@
 
-import { DAOusers } from '../persistence/config/config.js'
-import { DAOcarrito } from '../persistence/config/config.js'
+import { DAOusers } from '../persistence/factory.js'
+import { DAOcarrito } from '../persistence/factory.js'
 import sendMail from '../nodemailer/mailSender.js'
 import { infoLogger } from '../logger.js'
 import twilioSender from '../twilio/twilioMessage.js'
@@ -40,10 +40,10 @@ const purchase = async (userName) => {
     const messageSubject = `Nuevo pedido de ${userData.name} - ${userData.user}`
     sendMail(process.env.GMAILUSER, messageSubject, mailBodyTemplate.join(''))
     const smsMessage = `Hola ${userData.name}!  Su orden de compra con ID ${userData.cartId}\
-        ha sido generada con éxito, nos pondremos en contacto con usted.  Muchas gracias`
+        ha sido generada con exito, nos pondremos en contacto con usted.  Muchas gracias`
     twilioSender(userData.phone, messageSubject, 'whatsapp')
     twilioSender(userData.phone, smsMessage, 'sms')
-    infoLogger.info(`Orden de compra con ID ${userData.cartId} generada con éxito`)
+    infoLogger.info(`Orden de compra con ID ${userData.cartId} generada con exito`)
     return userData.cartId
 }
 

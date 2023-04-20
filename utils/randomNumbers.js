@@ -1,3 +1,4 @@
+import { infoLogger } from "../src/logger"
 
 const randomNumbers = (numbersQty) => {
     const numbersArray = []
@@ -22,7 +23,7 @@ const randomNumbers = (numbersQty) => {
     return consolidatedInfo
 }
 
-process.on('exit', () => console.log(`worker ${process.pid} cerrado`))
+process.on('exit', () => infoLogger.info(`worker ${process.pid} cerrado`))
 
 process.on('message', (numbersQty) => {
     const randomNumbersGenerated = randomNumbers(numbersQty)

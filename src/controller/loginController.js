@@ -2,7 +2,7 @@
 import passport from 'passport'
 import { Strategy } from 'passport-local'
 import bcrypt from 'bcrypt'
-import { DAOusers } from '../persistence/config/config.js'
+import { DAOusers } from '../persistence/factory.js'
 import { errorLogger } from '../logger.js'
 
 const isValidPassword = async (dbPassword, loginPassword) => {

@@ -42,7 +42,7 @@ const addCartToUser = async (req, res) => {
 const purchaseOrder = async (req, res) => {
     const userName = req.session.passport.user
     const orderNbr = await purchase(userName)
-    res.json(`Orden ${orderNbr} generada con éxito`)
+    res.json(`Orden ${orderNbr} generada con exito`)
 }
 
 const usersAdmin = async (req, res) => {

@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGOURI,
         useUnifiedTopology: true
     }, error => {
         if(error) throw new Error(`Error al conectar a base de datos, ${error}`)
-        infoLogger.info('Base de datos conectada')
+        infoLogger.info('MONGODB:  Base de datos conectada')
     }
 )
 

@@ -10,7 +10,7 @@ cancelPurchaseBtn[0].addEventListener('click', () => {
     document.location.href = '/api/productos'
 })
 
-const orderMessage = 'Orden de compra generada con éxito,\
+const orderMessage = 'Orden de compra generada con exito,\
     Hemos enviado un mensaje a su casilla y teléfono de registro"\
     ¡Muchas gracias!  Será redirigido a home luego de unos segundos...'
 

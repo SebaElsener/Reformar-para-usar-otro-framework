@@ -1,7 +1,7 @@
 
-import { DAOcarrito } from '../persistence/config/config.js'
-import { DAOproducts } from '../persistence/config/config.js'
-import { DAOusers } from '../persistence/config/config.js'
+import { DAOcarrito } from '../persistence/factory.js'
+import { DAOproducts } from '../persistence/factory.js'
+import { DAOusers } from '../persistence/factory.js'
 
 const getDataById = async (data) => {
     return await DAOcarrito.getById(data)

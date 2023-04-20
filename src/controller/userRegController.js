@@ -2,7 +2,7 @@
 import passport from 'passport'
 import { Strategy } from 'passport-local'
 import bcrypt from 'bcrypt'
-import { DAOusers } from '../persistence/config/config.js'
+import { DAOusers } from '../persistence/factory.js'
 import { infoLogger, errorLogger } from '../logger.js'
 import sendMail from '../nodemailer/mailSender.js'
 
@@ -44,7 +44,7 @@ passport.use('register', new Strategy({
             </ul>
             `
         sendMail(process.env.GMAILUSER, 'Nuevo registro', mailBodyTemplate)
-        infoLogger.info(`Nuevo usuario ${newUser.user} creado con éxito`)
+        infoLogger.info(`Nuevo usuario ${newUser.user} creado con exito`)
         return done(null, newUser.user)
     }
 ))

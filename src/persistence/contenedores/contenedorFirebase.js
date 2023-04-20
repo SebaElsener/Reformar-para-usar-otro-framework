@@ -6,36 +6,50 @@ const require = createRequire(import.meta.url)
 const serviceAccount = require('../config/coder-test-67523-firebase-adminsdk-w5t74-8bca7fec93.json')
 const admin = require("firebase-admin")
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-})
-infoLogger.info('Base de datos conectada')
+try {
+    admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)})
+    infoLogger.info('FIREBASE:  Base de datos conectada')
+} catch (error) {
+    infoLogger.info('ERROR DE CONEXION A FIREBASE', error)
+}
+
 const db = admin.firestore()
 
 class ContenedorFirebase {
     
-    //  Con el parámetro recibido de DAOproductsFirestore (clase extendida)
-    //  crea una nueva colección tanto para productos como para carrito
     constructor (collection) {
         this.collection = collection
         this.query = db.collection(this.collection)
     }
 
     //  Métodos comunes productos y carrito    
-    //  Traer todos los productos o carritos
-    async getAll() {
+    // Guardar un nuevo producto, usuario o carrito
+    async save (data) {
+        try {
+            let savedItemId
+            await this.query.add(data).then(ref => { savedItemId = { _id: ref.id } })
+            //const newcart = await doc.create(data).then(ref => console.log(ref))
+            return savedItemId
+        } catch (error) {
+            errorLogger.error(`Error al escribir en base de datos, ${error}`)
+        }
+    }
+
+    //  Traer todos los productos, carritos o usuarios
+    async getAll () {
         try {
             const querySnapshot = await this.query.get()
             const docs = querySnapshot.docs
-            const data = docs.map(doc => ({id: doc.id, ...doc.data()}))
+            const data = docs.map(doc => ({_id: doc.id, ...doc.data()}))
             return data
         } catch (error) {
             errorLogger.error('Error al leer la base de datos', error)
         }
     }
 
-    //  Traer producto o carrito por id
-    async getById(id) {
+    //  Traer producto, usuario o carrito por id
+    async getById (id) {
         try {
             const doc = this.query.doc(`${id}`)
             const item = await doc.get()
@@ -46,34 +60,23 @@ class ContenedorFirebase {
         }
     }
 
-    // Borrar producto o carrito por id
-    async deleteById(id) {
+    // Actualizar producto, usuario o carrito por id
+    async updateById (id, data) {
         try {
             const doc = this.query.doc(`${id}`)
-            await doc.delete()
+            return await doc.update(data)
         } catch (err) {
-            errorLogger.error('Error al eliminar producto', err)
+            errorLogger.error('Error al actualizar', err)
         }
     }
 
-    //  ----------- Métodos productos -----------  //
-    // Guardar un nuevo producto
-    async saveProduct (product) {
-        try {
-            const doc = this.query.doc()
-            await doc.create(product)
-        } catch (error) {
-            errorLogger.error(`Error al escribir en base de datos, ${error}`)
-        }
-    }
-
-    // Actualizar producto por id
-    async updateById(id, data) {
+    // Borrar producto, usuario o carrito por id
+    async deleteById (id) {
         try {
             const doc = this.query.doc(`${id}`)
-            await doc.update(data)
+            return await doc.delete()
         } catch (err) {
-            errorLogger.error('Error al actualizar producto', err)
+            errorLogger.error('Error al eliminar', err)
         }
     }
 
@@ -118,6 +121,49 @@ class ContenedorFirebase {
             return updatedCart
         } catch (error) {
             errorLogger.error(`Error al escribir en base de datos, ${error}`)
+        }
+    }
+
+    // METODOS USUARIOS //
+    async getByUser (username) {
+        try {
+            // let user = undefined
+            const allUsers = await this.getAll()
+            const firestoreUserId = allUsers.filter(user => user.user === username)
+            // const query = this.query.where('user', '==', username)
+            // await query.get().then(data => {
+            //     if (data.docs.length > 0) {
+            //         user = data.docs[0].data()
+
+            //     }
+            // })
+            return firestoreUserId[0]
+        } catch (error) {
+            errorLogger.error(`Error al buscar usuario, ${error}`)
+        }
+    }
+
+    async updateUsersAdmin (users) {
+        try {
+            users.forEach(async user => {
+                await this.updateById(user.user, { admin: user.admin.toString() })
+            })
+            return 'DATOS ACTUALIZADOS CON EXITO'
+        } catch (error) {
+            errorLogger.error(`Error al actualizar la información, ${error}`)
+        }
+
+    }
+
+    async deleteUsers (users) {
+        try {
+            users.forEach(async user => {
+                await this.deleteById(user)
+                //await this.newModel.deleteOne( {_id: user} )
+            })
+            return 'USUARIOS ELIMINADOS CON EXITO'
+        } catch (error) {
+            errorLogger.error('Error al eliminar uno o más usuarios', error)
         }
     }
 
