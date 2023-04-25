@@ -36,30 +36,21 @@ const getProductById = async (req, res) =>{
 
 const postProduct = async (req, res) =>{
     const product = req.body
-    const administrador = req.session.admin
-    const addedProduct = await addProduct(product, administrador)
-    addedProduct
-        ? res.json(addedProduct)
-        : res.json({ error : -1, descripcion: 'Sólo administradores' })
+    const addedProduct = await addProduct(product)
+    res.json(addedProduct)
     }
 
 const updateProductById = async (req, res) =>{
     const updateInfo = req.body
     const productId = req.params.id
-    const administrador = req.session.admin
-    const updatedProduct = await updateById(productId, updateInfo, administrador)
-    updatedProduct
-        ? res.json(updatedProduct)
-        : res.json({ error : -1, descripcion: 'Sólo administradores' })
+    const updatedProduct = await updateById(productId, updateInfo)
+    res.json(updatedProduct)
 }
 
 const deleteProductById = async (req, res) =>{
     const productId = req.params.id
-    const administrador = req.session.admin
-    const deletedProduct = deleteById(productId, administrador)
-    deletedProduct
-        ? res.json(deletedProduct)
-        : res.json({ error : -1, descripcion: 'Sólo administradores' })
+    const deletedProduct = deleteById(productId)
+    res.json(deletedProduct)
 }
 
 export {

@@ -19,22 +19,18 @@ const productById = async (reqParam) => {
     return await productsRepo.getById(reqParam)
 }
 
-const addProduct = async (product, administrador) => {
-    if (administrador) { return await productsRepo.save(product) }
-    return false
+const addProduct = async (product) => {
+    return await productsRepo.save(product)
 }
 
-const updateById = async (productId, updateInfo, administrador) => {
-    if (administrador) { return await productsRepo.updateById(productId, updateInfo) }
-    return false
+const updateById = async (productId, updateInfo) => {
+    await productsRepo.updateById(productId, updateInfo)
+    return await productsRepo.getById(productId)
 }
 
-const deleteById = async (productId, administrador) => {
+const deleteById = async (productId) => {
     const productToDelete = await productsRepo.getById(productId)
-    if (administrador && productToDelete !== null) {
-        return await productsRepo.deleteById(productId)
-    }
-    return false
+    if (productToDelete !== null) { return await productsRepo.deleteById(productId) }
 }
 
 export {
