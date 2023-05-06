@@ -44,6 +44,7 @@ app.use(session({
     store: new MongooseStore({
         collection: 'sessions'
     }),
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     rolling: true,
