@@ -1,5 +1,5 @@
 
-import { Router as router} from 'express'
+import Router from 'koa-router'
 import {
     getCartById,
     saveCart,
@@ -10,7 +10,9 @@ import {
     generatePurchaseOrder
 } from '../controller/cartController.js'
 
-const routeCart = new router()
+const routeCart = new Router({
+    prefix: '/api/carrito'
+})
 
 // devuelve todos los productos del carrito según id
 routeCart.get('/:id/productos', getCartById)

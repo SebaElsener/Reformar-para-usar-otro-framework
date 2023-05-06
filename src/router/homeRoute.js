@@ -1,10 +1,12 @@
 
-import { Router } from 'express'
+import Router from 'koa-router'
 
-const homeRoute = new Router()
+const homeRoute = new Router({
+    prefix: '/api/home'
+})
 
-homeRoute.get('/', (req, res) => {
-    res.redirect('/api/productos')
+homeRoute.get('/', ctx => {
+    ctx.response.redirect('/api/productos')
 })
 
 export default homeRoute

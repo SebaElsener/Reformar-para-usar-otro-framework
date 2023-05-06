@@ -42,8 +42,8 @@ usersForm.addEventListener('submit', async (e) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(json => { getToast(json) })
+        .then(res => res.text())
+        .then(text => { getToast(text) })
     }
 
     if (deleteArray.length !== 0) {
@@ -57,8 +57,8 @@ usersForm.addEventListener('submit', async (e) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(json => { getToast(json) })
+        .then(res => res.text())
+        .then(text => { getToast(text) })
     }
 })
 
@@ -78,7 +78,7 @@ const getToast = (text) => {
         style: {
         background: "linear-gradient(to right, #00b09b, #96c93d)",
         },
-        callback: reload()
+        //callback: reload()
     }).showToast()
 }
 

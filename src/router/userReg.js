@@ -1,21 +1,23 @@
 
-import { Router } from 'express'
+import Router from 'koa-router'
 import regController from '../controller/userRegController.js'
 
-const userReg = new Router()
+const userReg = new Router({
+    prefix: '/api/register'
+})
 
-userReg.get('/', (req, res) => {
-    res.render('register')
+userReg.get('/', ctx => {
+    ctx.response.render('register')
 })
 
 userReg.post('/', regController())
 
-userReg.get('/failreg', (req, res) => {
-    res.render('failreg')
+userReg.get('/failreg', ctx => {
+    ctx.response.render('failreg')
 })
 
-userReg.get('/successreg', (req, res) => {
-    res.render('successreg')
+userReg.get('/successreg', ctx => {
+    ctx.response.render('successreg')
 })
 
 export default userReg

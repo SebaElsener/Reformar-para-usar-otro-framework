@@ -1,55 +1,49 @@
 
-import express from 'express'
-import { Server as HttpServer } from 'http'
-import { Server as Socket } from 'socket.io'
-import session from 'express-session'
-import MongoStore from 'connect-mongo'
-import MessageRepository from './persistence/repository/messageRepository.js'
-import normalizeMessages from './normalize/normalize.js'
+import Koa from 'koa'
+import { koaBody } from 'koa-body'
 import userLogin from './router/userLogin.js'
 import homeRoute from './router/homeRoute.js'
 import userReg from './router/userReg.js'
-import passport from 'passport'
 import routeProducts from './router/productsRouter.js'
 import routeCart from './router/cartRouter.js'
 import userLogout from './router/userLogout.js'
-import userLoginWatcher from './middleware/userLoginWatcher.js'
+import infoAndRandoms from './router/infoAndRandoms.js'
+import userData from './router/userData.js'
+import { Server as HttpServer } from 'http'
+import { Server as Socket } from 'socket.io'
+import session from 'koa-session'
+import passport from 'koa-passport'
 import _yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import dotenv from 'dotenv'
-import infoAndRandoms from './router/infoAndRandoms.js'
 import cluster from 'cluster'
 import * as os from 'os'
-import compression from 'compression'
 import routeError from './middleware/routeError.js'
 import { logs } from './middleware/logs.js'
-import userData from './router/userData.js'
 import { infoLogger, errorLogger } from './logger.js'
+import views from 'koa-views'
+import serve from 'koa-static'
+import MessageRepository from './persistence/repository/messageRepository.js'
+import normalizeMessages from './normalize/normalize.js'
+import MongooseStore from 'koa-session-mongoose'
 
 dotenv.config()
 
 const yargs = _yargs(hideBin(process.argv))
-const app = express()
-const httpServer = new HttpServer(app)
+const app = new Koa()
+const httpServer = new HttpServer(app.callback())
 const io = new Socket(httpServer)
-const messages = MessageRepository.getInstance()
 
-app.set('view engine', 'ejs')
-app.set('views', './public/views')
+app.use(serve('public'))
+const render = views('./public/views', { extension: 'ejs' })
+app.use(render)
+app.use(koaBody())
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
-app.use(compression())
+app.keys = [process.env.SECRET]
 app.use(session({
-    store: MongoStore.create({
-        dbName: 'sessions',
-        mongoUrl: process.env.MONGOURI,
-        mongoOptions: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }}),
-    secret: process.env.SECRET,
+    store: new MongooseStore({
+        collection: 'sessions'
+    }),
     resave: false,
     saveUninitialized: false,
     rolling: true,
@@ -57,7 +51,7 @@ app.use(session({
         // Tiempo de expiración 10 min
         maxAge: 600000
     }
-}))
+}, app))
 
 passport.serializeUser((user, done) => {
     done(null, user)
@@ -67,21 +61,24 @@ passport.deserializeUser((user, done) => {
 })
 app.use(passport.initialize())
 app.use(passport.session())
+
 // Middleware para registrar todas la peticiones recibidas
 app.use(logs)
-app.use('/', userLogin)
-app.use('/api/productos', routeProducts)
-app.use('/api/carrito', userLoginWatcher, routeCart)
-app.use('/api/userdata', userLoginWatcher, userData)
-app.use('/api/login', userLogin)
-app.use('/api/logout', userLogout)
-app.use('/api/register', userReg)
-app.use('/api/home', homeRoute)
-app.use('/api/', infoAndRandoms)
+
+// Rutas api
+app.use(userLogin.routes())
+app.use(routeProducts.routes())
+app.use(routeCart.routes())
+app.use(userData.routes())
+app.use(userLogout.routes())
+app.use(userReg.routes())
+app.use(homeRoute.routes())
+app.use(infoAndRandoms.routes())
 
 // Middleware para mostrar error al intentar acceder a una ruta/método no implementados
 app.use(routeError)
 
+const messages = MessageRepository.getInstance()
 io.on('connection', async socket => {
     infoLogger.info('Nuevo cliente conectado!')
     // Envío listado completo de mensajes a todos los clientes conectados

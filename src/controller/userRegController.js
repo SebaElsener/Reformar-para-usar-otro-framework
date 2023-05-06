@@ -1,5 +1,5 @@
 
-import passport from 'passport'
+import passport from 'koa-passport'
 import { Strategy } from 'passport-local'
 import bcrypt from 'bcrypt'
 import { DAOusers } from '../persistence/factory.js'

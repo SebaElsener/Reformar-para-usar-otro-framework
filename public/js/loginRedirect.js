@@ -1,4 +1,4 @@
 
 setTimeout(() => {
-    location.href = '/api/login'
+    document.location.href = '/api/login'
 }, 2000)

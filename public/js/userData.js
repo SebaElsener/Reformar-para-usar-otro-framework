@@ -7,7 +7,7 @@ const phone = document.getElementById('phone')
 const avatar = document.getElementById('avatar')
 const _id = document.getElementById('_id')
 
-userDataForm.addEventListener('submit', (e) => {
+userDataForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const userInfoToUpdate = {
         userDBid: _id.value,
@@ -17,7 +17,7 @@ userDataForm.addEventListener('submit', (e) => {
         phone: phone.value,
         avatar: avatar.value,
     }
-    fetch('/api/userdata/',
+    await fetch('/api/userdata/',
     {
         method: 'POST',
         body: JSON.stringify(userInfoToUpdate),
@@ -25,8 +25,8 @@ userDataForm.addEventListener('submit', (e) => {
             'Content-Type': 'application/json'
         }
     })
-    .then(res => res.json())
-    .then(json => {
+    .then(res => res.text())
+    .then(text => {
         Toastify({
             text: 'DATOS ACTUALIZADOS CON EXITO',
             offset: {

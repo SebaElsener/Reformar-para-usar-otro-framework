@@ -32,13 +32,15 @@ window.addEventListener('load', async () => {
 
 // Evento borrar producto
 for (let i=0; i < deleteBtn.length; i++) {
-    deleteBtn[i].addEventListener('click', () => {
+    deleteBtn[i].addEventListener('click', async () => {
         productId = updateBtn[i].parentElement.previousElementSibling.childNodes[1].id
-        fetch(`/api/productos/${productId}`,
+        await fetch(`/api/productos/${productId}`,
             {
                 method: 'DELETE'
             }
-        ).then(res => res.json()).then(json => {
+        )
+        .then(res => res.json())
+        .then(json => {
             console.log(json)
             document.location.reload()}
         )
@@ -47,7 +49,7 @@ for (let i=0; i < deleteBtn.length; i++) {
 
 // Evento modificar producto
 for (let i=0; i < updateBtn.length; i++) {
-    updateBtn[i].addEventListener('click', () => {
+    updateBtn[i].addEventListener('click', async () => {
         productId = updateBtn[i].parentElement.previousElementSibling.childNodes[1].id
         productToUpdate = {
             product: updateBtn[i].parentElement.parentElement.childNodes[1].value,
@@ -57,7 +59,7 @@ for (let i=0; i < updateBtn.length; i++) {
             code: updateBtn[i].parentElement.parentElement.childNodes[13].value,
             thumbnail: updateBtn[i].parentElement.parentElement.childNodes[5].childNodes[1].src
         }
-        fetch(`/api/productos/${productId}`,
+        await fetch(`/api/productos/${productId}`,
             {
                 method: 'PUT',
                 body: JSON.stringify(productToUpdate),
@@ -66,7 +68,22 @@ for (let i=0; i < updateBtn.length; i++) {
                 }
             }
         ).then(res => res.json()).then(json => {
-            console.log(json)
+            Toastify({
+                text: `PRODUCTO ${json.product} ACTUALIZADO CON EXITO`,
+                offset: {
+                    x: 150,
+                    y: 150
+                },
+                duration: 2000,
+                newWindow: false,
+                close: false,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+              }).showToast()
         })
     })
 }
@@ -100,7 +117,7 @@ for (let i=0;i < buyBtn.length;i++) {
             }
             //Fetch para agregar producto comprado al carrito
             cartId = cartLink[0].id
-            fetch(`/api/carrito/${cartId}/productos/${buyBtn[i].id}`,
+            await fetch(`/api/carrito/${cartId}/productos/${buyBtn[i].id}`,
                 {
                     method: 'POST',
                     body: JSON.stringify(selectedProduct),

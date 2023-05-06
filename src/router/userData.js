@@ -1,6 +1,5 @@
 
-import { Router } from 'express'
-
+import Router from 'koa-router'
 import {
     renderUserData,
     getUser,
@@ -12,7 +11,9 @@ import {
     usersDelete
 } from '../controller/userController.js'
 
-const userData = new Router()
+const userData = new Router({
+    prefix: '/api/userdata'
+})
 
 userData.get('/', renderUserData)
 

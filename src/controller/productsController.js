@@ -8,11 +8,11 @@ import {
     deleteById
 } from '../business/ProductsBusiness.js'
 
-const mainPageRender = async (req, res) => {
-    const userName = req.session.passport.user
+const mainPageRender = async ctx => {
+    const userName = ctx.session.passport.user
     const data = await mainPage(userName)
-    req.session.admin = data.userData.admin
-    res.render('index', {
+    ctx.session.admin = data.userData.admin
+    ctx.response.render('index', {
         userName: userName,
         userData: data.userData,
         allProducts: data.productsList || ['Error'],
@@ -20,37 +20,37 @@ const mainPageRender = async (req, res) => {
     })
 }
 
-const productsForm = async (req, res) => {
-    res.render('./partials/form')
+const productsForm = async ctx => {
+    ctx.render('./partials/form')
 }
 
-const getProductById = async (req, res) =>{
-    const productId = req.params.id
+const getProductById = async ctx => {
+    const productId = ctx.params.id
     if (productId === 'arrayproductos') {
-        res.json(await getAllProducts(productId))
+        ctx.body = await getAllProducts(productId)
     } else {
     const searchedProduct = await productById(productId)
-        res.json(searchedProduct)
+        ctx.response.json(searchedProduct)
     }
 }
 
-const postProduct = async (req, res) =>{
-    const product = req.body
+const postProduct = async ctx => {
+    const product = ctx.request.body
     const addedProduct = await addProduct(product)
-    res.json(addedProduct)
+    ctx.body = addedProduct
     }
 
-const updateProductById = async (req, res) =>{
-    const updateInfo = req.body
-    const productId = req.params.id
+const updateProductById = async ctx => {
+    const updateInfo = ctx.request.body
+    const productId = ctx.params.id
     const updatedProduct = await updateById(productId, updateInfo)
-    res.json(updatedProduct)
+    ctx.body = updatedProduct
 }
 
-const deleteProductById = async (req, res) =>{
-    const productId = req.params.id
-    const deletedProduct = deleteById(productId)
-    res.json(deletedProduct)
+const deleteProductById = async ctx => {
+    const productId = ctx.params.id
+    const deletedProduct = await deleteById(productId)
+    ctx.body = deletedProduct
 }
 
 export {

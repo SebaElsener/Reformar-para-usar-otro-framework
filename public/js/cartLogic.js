@@ -42,15 +42,13 @@ deleteCartBtn[0].addEventListener('click', async () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(json => console.log(json))
+        .then(res => console.log(res))
     // Delete carrito
     await fetch(`/api/carrito/${userCartId}`, { method: 'DELETE'})
         .then(res => res.json())
-        .then(async json => {
+        .then(json => {
             console.log(json)
         })
-
     document.location.reload()
 })
 

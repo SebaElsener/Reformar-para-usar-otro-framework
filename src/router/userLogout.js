@@ -1,14 +1,13 @@
 
-import { Router } from 'express'
+import Router from 'koa-router'
 
-const userLogout = new Router()
+const userLogout = new Router({
+    prefix: '/api/logout'
+})
 
-userLogout.get('/', (req, res) => {
-    req.session.destroy(error => {
-        !error
-            ? res.render('logout')
-            : res.redirect('/api/home')
-    })
+userLogout.get('/', ctx => {
+    ctx.session = null
+    !ctx.session ? ctx.render('logout') : ctx.redirect('/api/home')
 })
 
 export default userLogout

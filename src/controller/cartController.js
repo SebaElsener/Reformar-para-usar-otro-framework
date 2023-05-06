@@ -9,35 +9,35 @@ import {
     purchaseOrder
 } from '../business/cartBusiness.js'
 
-const getCartById = async (req, res) => {
-    const cart = await getDataById(req.params.id)
-    res.json(cart)
+const getCartById = async ctx => {
+    const cart = await getDataById(ctx.params.id)
+    ctx.body = cart
 }
 
-const saveCart = async (req, res) => {
+const saveCart = async ctx => {
     const newCart = await saveNewCart()
-    res.json(newCart)
+    ctx.body = newCart
 }
 
-const addProductByIdAndCartId = async (req, res) => {
-    const addedProduct = await addNewProductToCart(req.params.id_prod, req.params.id_cart)
-    res.json(addedProduct)
+const addProductByIdAndCartId = async ctx => {
+    const addedProduct = await addNewProductToCart(ctx.params.id_prod, ctx.params.id_cart)
+    ctx.body = addedProduct
 }
 
-const deleteProductByIdAndCartId = async (req, res) => {
-    const deletedProduct = await deleteProductFromCart(req.params.id_prod, req.params.id_cart)
-    res.json(deletedProduct)
+const deleteProductByIdAndCartId = async ctx => {
+    const deletedProduct = await deleteProductFromCart(ctx.params.id_prod, ctx.params.id_cart)
+    ctx.body = deletedProduct
 }
 
-const deleteCartById = async (req, res) => {
-    const deletedCart = await deleteCart(req.params.id_cart)
-    res.json(deletedCart)
+const deleteCartById = async ctx => {
+    const deletedCart = await deleteCart(ctx.params.id)
+    ctx.body = deletedCart
 }
 
-const renderCart = async (req, res) => {
-    const userName = req.session.passport.user
+const renderCart = async ctx => {
+    const userName = ctx.session.passport.user
     const cartData = await renderedCart(userName)
-    res.render('./partials/cart',
+    ctx.render('./partials/cart',
         {
             cart: cartData.cart,
             productsQty: cartData.cart.productos.length,
@@ -46,10 +46,10 @@ const renderCart = async (req, res) => {
     )
 }
 
-const generatePurchaseOrder = async (req, res) => {
-    const userName = req.session.passport.user
+const generatePurchaseOrder = async ctx => {
+    const userName = ctx.session.passport.user
     const purchaseOrderData = await purchaseOrder(userName)
-    res.render('./partials/purchaseOrder',
+    ctx.render('./partials/purchaseOrder',
         {
             cart: purchaseOrderData.cart,
             userData: purchaseOrderData.userData

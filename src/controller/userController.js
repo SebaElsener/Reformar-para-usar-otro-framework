@@ -9,57 +9,58 @@ import {
     deleteUsers
 } from '../business/userBusiness.js'
 
-const renderUserData = async (req, res) => {
-    const userName = req.session.passport.user
-    res.render('userData', {
+const renderUserData = async ctx => {
+    const userName = ctx.session.passport.user
+    ctx.render('userData', {
         userData: await getByUser(userName)
     })
 }
 
-const getUser = async (req, res) => {
-    const userName = req.session.passport.user
-    res.json(await getByUser(userName))
+const getUser = async ctx => {
+    const userName = ctx.session.passport.user
+    ctx.body = await getByUser(userName)
 }
 
-const updateUser = async (req, res) => {
-    const userDBid = req.body.userDBid
+const updateUser = async ctx => {
+    const userDBid = ctx.request.body.userDBid
     const userInfoToUpdate = {
-        name: req.body.name,
-        address: req.body.address,
-        age: req.body.age,
-        phone: req.body.phone,
-        avatar: req.body.avatar,
+        name: ctx.request.body.name,
+        address: ctx.request.body.address,
+        age: ctx.request.body.age,
+        phone: ctx.request.body.phone,
+        avatar: ctx.request.body.avatar
     }
-    res.json(await updateUserById(userDBid, userInfoToUpdate))
+    ctx.body = await updateUserById(userDBid, userInfoToUpdate)
 }
 
-const addCartToUser = async (req, res) => {
-    const cartId = { cartId: req.body.cartId }
-    const userId = req.body.userId
-    res.json(updateUserWithCart(userId, cartId))
+const addCartToUser = async ctx => {
+    const cartId = { cartId: ctx.request.body.cartId }
+    const userId = ctx.request.body.userId
+    ctx.body = updateUserWithCart(userId, cartId)
 }
 
-const purchaseOrder = async (req, res) => {
-    const userName = req.session.passport.user
+const purchaseOrder = async ctx => {
+    const userName = ctx.session.passport.user
     const orderNbr = await purchase(userName)
-    res.json(`Orden ${orderNbr} generada con exito`)
+    ctx.body = `Orden ${orderNbr} generada con exito`
 }
 
-const usersAdmin = async (req, res) => {
+const usersAdmin = async ctx => {
     const allUsers = await getAllUsers()
-    res.render('partials/usersAdmin', {
+    ctx.render('partials/usersAdmin', {
         allUsers: allUsers
     })
 }
 
-const usersAdm = async (req, res) => {
-    const users = req.body
-    res.json(await makeUsersAdmin(users))
+const usersAdm = async ctx => {
+    const users = ctx.request.body
+    ctx.body = await makeUsersAdmin(users)
 }
 
-const usersDelete = async (req, res) => {
-    const users = req.body
-    res.json(await deleteUsers(users))
+const usersDelete = async ctx => {
+    const users = ctx.request.body
+    console.log(users)
+    ctx.body = await deleteUsers(users)
 }
 
 export {

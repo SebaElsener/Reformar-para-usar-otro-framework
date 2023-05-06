@@ -1,7 +1,7 @@
 
 import { infoLogger } from '../logger.js'
 
-export const logs = (req, res, next) => {
-    infoLogger.info(`ruta '${req.path}' metodo '${req.method}'`)
-    next()
+export const logs = async (ctx, next) => {
+    infoLogger.info(`ruta '${ctx.path}' metodo '${ctx.method}'`)
+    await next()
 }

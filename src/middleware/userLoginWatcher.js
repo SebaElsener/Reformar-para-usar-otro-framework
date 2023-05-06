@@ -1,6 +1,7 @@
 
-const userLoginWatcher = (req, res, next) => {
-    req.isAuthenticated() ? next() : res.render('timeout')
+const userLoginWatcher = async (ctx, next) => {
+    console.log(ctx.isAuthenticated())
+    ctx.isAuthenticated() ? await next() : await ctx.render('timeout')
 }
 
 export default userLoginWatcher

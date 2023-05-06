@@ -69,11 +69,11 @@ class ContenedorMongoDB {
         }
     }
 
-    //  ----------- Métodos productos -----------  //
-    // Actualizar producto por id
+    // Actualizar por id
     async updateById(id, data) {
         try {
-            return await this.newModel.updateOne({_id: id}, { $set: data })
+            await this.newModel.updateOne({_id: id}, { $set: data })
+            return `${id} ACTUALIZADO CON EXITO`
         } catch (err) {
             errorLogger.error('Error al actualizar', err)
         }

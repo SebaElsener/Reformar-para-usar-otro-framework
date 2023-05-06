@@ -23,7 +23,7 @@ confirmPurchaseBtn.addEventListener('click', async () => {
             x: 150,
             y: 150
         },
-        duration: 7000,
+        duration: 6000,
         destination: "/api/productos",
         newWindow: false,
         close: false,
@@ -50,7 +50,7 @@ const deleteCart = async () => {
     })
     // Delete ID carrito en documento user
     const data = { userId: userId, cartId: '' }
-    await fetch('/api/userdata/',
+    await fetch('/api/userdata',
         {
             method: 'PUT',
             body: JSON.stringify(data),
@@ -58,13 +58,11 @@ const deleteCart = async () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(json => console.log(json))
+        .then(res => console.log(res))
+        //.then(json => console.log(json))
 
     // Delete carrito
     await fetch(`/api/carrito/${userCartId}`, { method: 'DELETE'})
         .then(res => res.json())
-        .then(async json => {
-            console.log(json)
-        })
+        .then(json => console.log(json))
 }
