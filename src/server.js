@@ -26,6 +26,7 @@ import serve from 'koa-static'
 import MessageRepository from './persistence/repository/messageRepository.js'
 import normalizeMessages from './normalize/normalize.js'
 import MongooseStore from 'koa-session-mongoose'
+import userLoginWatcher from './middleware/userLoginWatcher.js'
 
 dotenv.config()
 
@@ -67,13 +68,13 @@ app.use(passport.session())
 app.use(logs)
 
 // Rutas api
+app.use(homeRoute.routes())
 app.use(userLogin.routes())
+app.use(userReg.routes())
 app.use(routeProducts.routes())
 app.use(routeCart.routes())
 app.use(userData.routes())
 app.use(userLogout.routes())
-app.use(userReg.routes())
-app.use(homeRoute.routes())
 app.use(infoAndRandoms.routes())
 
 // Middleware para mostrar error al intentar acceder a una ruta/método no implementados

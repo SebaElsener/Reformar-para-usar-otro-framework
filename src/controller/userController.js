@@ -58,8 +58,8 @@ const usersAdm = async ctx => {
 }
 
 const usersDelete = async ctx => {
+    console.log(ctx.request.body)
     const users = ctx.request.body
-    console.log(users)
     ctx.body = await deleteUsers(users)
 }
 

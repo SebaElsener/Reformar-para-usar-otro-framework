@@ -35,30 +35,30 @@ usersForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     if (adminArray.length !== 0) {
         await fetch('/api/userdata/usersadm',
-        {
-            method: 'PUT',
-            body: JSON.stringify(adminArray),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.text())
-        .then(text => { getToast(text) })
+            {
+                method: 'PUT',
+                body: JSON.stringify(adminArray),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.text())
+            .then(text => { getToast(text) })
     }
 
     if (deleteArray.length !== 0) {
         const usersToDelete = []
         deleteArray.map(user => { if (user.admin) { usersToDelete.push(user.user.slice(7)) } })
         await fetch('/api/userdata/usersdelete',
-        {
-            method: 'DELETE',
-            body: JSON.stringify(usersToDelete),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.text())
-        .then(text => { getToast(text) })
+            {
+                method: 'DELETE',
+                body: JSON.stringify(usersToDelete),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.text())
+            .then(text => { getToast(text) })
     }
 })
 
@@ -78,7 +78,7 @@ const getToast = (text) => {
         style: {
         background: "linear-gradient(to right, #00b09b, #96c93d)",
         },
-        //callback: reload()
+        callback: reload()
     }).showToast()
 }
 

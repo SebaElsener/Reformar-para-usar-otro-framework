@@ -6,18 +6,18 @@ const userReg = new Router({
     prefix: '/api/register'
 })
 
-userReg.get('/', ctx => {
-    ctx.response.render('register')
+userReg.get('/', async ctx => {
+    await ctx.render('register')
 })
 
 userReg.post('/', regController())
 
-userReg.get('/failreg', ctx => {
-    ctx.response.render('failreg')
+userReg.get('/failreg', async ctx => {
+    await ctx.render('failreg')
 })
 
-userReg.get('/successreg', ctx => {
-    ctx.response.render('successreg')
+userReg.get('/successreg', async ctx => {
+    await ctx.render('successreg')
 })
 
 export default userReg

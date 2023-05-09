@@ -327,3 +327,89 @@
 {"level":40,"time":"2023-05-05T23:45:09.467Z","pid":17608,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
 {"level":40,"time":"2023-05-05T23:45:27.114Z","pid":17608,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
 {"level":40,"time":"2023-05-06T00:26:06.858Z","pid":10952,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T22:59:34.238Z","pid":9020,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:01:36.599Z","pid":7444,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/login12' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:23:39.639Z","pid":13236,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos12' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:23:39.995Z","pid":13236,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:25:10.817Z","pid":13236,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/favicon.ico' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:31:19.944Z","pid":14000,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/login12' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:32:37.439Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:32:41.885Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:32:46.235Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:32:50.564Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:32:54.964Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:32:59.598Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:04.054Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:08.394Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:12.760Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:17.341Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:22.073Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:26.674Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:31.291Z","pid":9860,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:40.435Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:44.737Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:44.949Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:47.609Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:52.132Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:33:56.647Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:34:01.009Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:34:05.405Z","pid":9564,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:35:31.160Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:35:37.681Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:35:42.030Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:35:46.408Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:35:51.068Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:35:55.647Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:00.229Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:05.178Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:09.742Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:14.519Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:19.157Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:23.626Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:28.207Z","pid":14152,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:37.378Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:42.362Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:46.700Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:47.670Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:36:52.058Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:04.882Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:09.227Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:13.568Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:18.303Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:23.294Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:27.728Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:32.252Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:36.647Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:41.005Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:46.265Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:50.741Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:37:55.410Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:00.021Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:04.599Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:09.170Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:13.534Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:18.108Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:22.734Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:38:27.084Z","pid":13308,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-05-08T23:42:28.988Z","pid":13400,"hostname":"DESKTOP-48ND4VH","msg":"Usuario ya existe"}
+{"level":40,"time":"2023-05-08T23:43:31.114Z","pid":13400,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/login67' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:55:47.722Z","pid":5688,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos45' metodo 'GET' no implementada"}
+{"level":40,"time":"2023-05-08T23:56:30.860Z","pid":12324,"hostname":"DESKTOP-48ND4VH","msg":"Ruta '/api/productos8' metodo 'GET' no implementada"}
+{"level":50,"time":"2023-05-08T23:56:56.075Z","pid":12324,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-08T23:57:45.305Z","pid":12324,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-08T23:59:53.944Z","pid":5044,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:00:34.754Z","pid":12812,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:01:45.636Z","pid":8348,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:02:22.819Z","pid":6752,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:06:04.947Z","pid":6752,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:07:02.835Z","pid":12220,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:07:22.895Z","pid":4400,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:11:19.621Z","pid":10516,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:12:12.953Z","pid":1084,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:18:38.858Z","pid":1084,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:19:31.401Z","pid":11016,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:22:02.470Z","pid":11016,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:22:52.973Z","pid":11016,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:25:13.488Z","pid":804,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:26:03.136Z","pid":804,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}
+{"level":50,"time":"2023-05-09T00:26:37.123Z","pid":804,"hostname":"DESKTOP-48ND4VH","msg":"Error al eliminar uno o más usuarios"}

@@ -9,6 +9,7 @@ import {
 } from '../business/ProductsBusiness.js'
 
 const mainPageRender = async ctx => {
+    if (ctx.session.passport == undefined) { return await ctx.render('login') }
     const userName = ctx.session.passport.user
     const data = await mainPage(userName)
     ctx.session.admin = data.userData.admin

@@ -7,7 +7,9 @@ const userLogout = new Router({
 
 userLogout.get('/', ctx => {
     ctx.session = null
-    !ctx.session ? ctx.render('logout') : ctx.redirect('/api/home')
+    if (!ctx.session) {
+        ctx.render('logout')
+    } else { ctx.redirect('/api/home') }
 })
 
 export default userLogout

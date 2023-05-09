@@ -1,7 +1,8 @@
 
 const userLoginWatcher = async (ctx, next) => {
     console.log(ctx.isAuthenticated())
-    ctx.isAuthenticated() ? await next() : await ctx.render('timeout')
+    if (!ctx.isAuthenticated()) { await ctx.render('timeout') }
+    await next()
 }
 
 export default userLoginWatcher

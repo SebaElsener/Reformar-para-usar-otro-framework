@@ -9,7 +9,7 @@ const routeError = async (ctx, next) => {
             badRoute: routeError
         })
     }
-    next()
+    await next()
 }
 
 export default routeError
